@@ -1,4 +1,4 @@
-# Sasaya VIM
+# Sasaya Vim
 
 ## Installation
 
