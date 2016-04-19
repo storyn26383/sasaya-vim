@@ -45,7 +45,7 @@ set guioptions-=l                     " remove gui scrollbar
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
-colorscheme Tomorrow-Night
+colorscheme TomorrowNight
 
 set nobackup                          " no *~ backup files
 set noswapfile
