@@ -99,7 +99,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plgins
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
 Plugin 'ap/vim-css-color'
 Plugin 'scrooloose/nerdtree'
