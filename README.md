@@ -23,6 +23,7 @@
 4. Initial and update git submodule
 
     ```bash
+    cd .vim
     git submodule init
     git submodule update
     ```
