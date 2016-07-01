@@ -1,0 +1,81 @@
+snippet pubf
+	public function ${1:methodName}(${2})
+	{
+		${3://}
+	}
+
+snippet pubsf
+	public static function ${1:methodName}(${2})
+	{
+		${3://}
+	}
+
+snippet prof
+	protected function ${1:methodName}(${2})
+	{
+		${3://}
+	}
+
+snippet prosf
+	protected static function ${1:methodName}(${2})
+	{
+		${3://}
+	}
+
+
+snippet prif
+	private function ${1:methodName}(${2})
+	{
+		${3://}
+	}
+
+snippet prisf
+	private static function ${1:methodName}(${2})
+	{
+		${3://}
+	}
+
+snippet _c
+	public function __construct(${1})
+	{
+		${2}
+	}
+
+snippet class
+	namespace ${1:Foo\Bar};
+
+	class ${2:className}
+	{
+		${3://}
+	}
+
+snippet aclass
+	namespace ${1:Foo\Bar};
+
+	abstract class ${2:className}
+	{
+		${3://}
+	}
+
+snippet interface
+	namespace ${1:Foo\Bar};
+
+	interface ${2:interfaceName}
+	{
+		${3://}
+	}
+
+snippet trait
+	namespace ${1:Foo\Bar};
+
+	trait ${2:traitName}
+	{
+		${3://}
+	}
+
+snippet this
+	\$this->${1}
+
+snippet .
+	->${1}
+

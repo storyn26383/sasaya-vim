@@ -9,7 +9,8 @@ set linebreak
 set nolist
 set hidden
 set cursorline
-set nofoldenable
+set showmatch
+set foldenable
 set number
 set numberwidth=4
 " set relativenumber
@@ -31,6 +32,7 @@ set key=                              " disable encryption
 set synmaxcol=128
 set viminfo=                          " disable .viminfo file
 set ttyfast                           " send more chars while redrawing
+set completeopt=menuone
 
 set foldmethod=indent
 set foldlevel=100
@@ -45,7 +47,7 @@ set guioptions-=l                     " remove gui scrollbar
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
-colorscheme TomorrowNight
+colorscheme Tomorrow-Night
 
 set nobackup                          " no *~ backup files
 set noswapfile
@@ -115,16 +117,19 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'ervandew/supertab'
+Plugin 'mattn/emmet-vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'shawncplus/phpcomplete.vim'
+" Plugin 'm2mdas/phpcomplete-extended'
+" Plugin 'm2mdas/phpcomplete-extended-laravel'
 " Plugin 'Shougo/neocomplete.vim'
 " Plugin 'Shougo/neosnippet.vim'
 " Plugin 'Shougo/neosnippet-snippets'
-" Plugin 'Shougo/vimproc.vim'
-" Plugin 'Shougo/unite.vim'
-" Plugin 'shawncplus/phpcomplete.vim'
-" Plugin 'm2mdas/phpcomplete-extended'
-" Plugin 'm2mdas/phpcomplete-extended-laravel'
 " Plugin 'Valloric/YouCompleteMe'
+" Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()                    " required
@@ -144,7 +149,7 @@ filetype plugin indent on            " required
 " =================
 
 " ctrlp
-let g:ctrlp_custom_ignore = {
+let g:ctrlp_custom_ignore={
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
   \ 'file': '\.DS_Store$',
   \ 'binary file': '\v\.(exe|so|dll)$',
@@ -157,7 +162,7 @@ let g:ctrlp_show_hidden=1
 " airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#left_alt_sep=''
 let g:airline#extensions#tabline#buffer_nr_show=1
 let g:airline#extensions#tabline#buffer_nr_format='%s: '
 let g:airline_theme='tomorrow'
@@ -170,7 +175,7 @@ let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=0
-let NERDTreeIgnore = ['\.git$', '\.DS_Store$']
+let NERDTreeIgnore=['\.git$', '\.DS_Store$']
 let g:NERDTreeWinSize=30
 let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_open_on_gui_startup=0
@@ -182,30 +187,71 @@ let g:indentLine_first_char='┆'
 let g:indentLine_color_term=239
 let g:indentLine_showFirstIndentLevel=1
 
+" php cs fixer
+let g:php_cs_fixer_level='psr2'
+
+" phpcomplete
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+" autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
+" let g:SuperTabDefaultCompletionType='<C-X><C-O>'
+" let g:SuperTabContextDefaultCompletionType='<C-X><C-O>'
+" let g:phpcomplete_index_composer_command='composer'
+
 " neocomplete
 " let g:neocomplete#enable_at_startup=1
 " let g:neocomplete#enable_smart_case=1
 " let g:neocomplete#lock_buffer_name_pattern='\*ku\*'
 " let g:neocomplete#sources#syntax#min_keyword_length=3
 " if !exists('g:neocomplete#keyword_patterns')
-"     let g:neocomplete#keyword_patterns = {}
+"     let g:neocomplete#keyword_patterns={}
 " endif
 " let g:neocomplete#keyword_patterns['default']='\h\w*'
 " if !exists('g:neocomplete#sources#omni#input_patterns')
-"     let g:neocomplete#sources#omni#input_patterns = {}
+"     let g:neocomplete#sources#omni#input_patterns={}
 " endif
-" let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\h\w*\|\h\w*::'
 
-" phpcomplete
-" let g:phpcomplete_index_composer_command = 'composer'
-" autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
+" emmet
+" let g:user_emmet_leader_key='<C-Y>'
 
 " =================
 "  key remap
 " =================
 
-" Easy escaping to normal mode
+" leader key
+let mapleader=','
+let g:mapleader=','
+
+" easy escaping to normal mode
 imap jj <esc>
+
+" down is really the next line
+nnoremap j gj
+nnoremap k gk
+
+" fast save
+nmap <Leader>w :w<CR>
+
+" tig
+nmap <Leader>g :!tig<CR>
+
+" ctags
+nmap <Leader>c :!ctags -R --languages=PHP<CR>
+
+" fold
+nmap <Leader>k1 :set foldlevel=0<CR>
+nmap <Leader>k2 :set foldlevel=1<CR>
+nmap <Leader>k3 :set foldlevel=2<CR>
+nmap <Leader>k4 :set foldlevel=3<CR>
+nmap <Leader>k5 :set foldlevel=4<CR>
+nmap <Leader>k6 :set foldlevel=5<CR>
+nmap <Leader>k7 :set foldlevel=6<CR>
+nmap <Leader>k8 :set foldlevel=7<CR>
+nmap <Leader>k9 :set foldlevel=8<CR>
+nmap <Leader>k0 :set foldlevel=100<CR>
+
+" omni complete
+imap <Leader>xo <C-X><C-O>
 
 " force myself to not to use the error keys
 " map <UP> <NOP>
@@ -239,15 +285,15 @@ noremap <CR> :nohlsearch<CR>
 " ctrlp
 nnoremap <silent> <Leader>t :CtrlPTag<CR>
 nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
-nnoremap <silent> <C-b> :CtrlPBuffer<CR>
+nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 
 " NERDTree
-nnoremap <silent> <C-e> :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>kb :NERDTreeToggle<CR>
 
 " php namespace
 function! IPhpInsertUse()
     call PhpInsertUse()
-    call feedkeys('a',  'n')
+    call feedkeys('a', 'n')
 endfunction
 
 function! IPhpExpandClass()
@@ -256,10 +302,23 @@ function! IPhpExpandClass()
 endfunction
 
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+autocmd FileType php inoremap <Leader>f <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>f :call PhpInsertUse()<CR>
+
+" php cs fixer
+autocmd FileType php nnoremap <silent><leader>pf :w<CR> :call PhpCsFixerFixFile()<CR>
+
+" Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_always_populate_loc_list=1
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_check_on_open=1
+" let g:syntastic_check_on_wq=0
 
 " neocomplete
-" inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
-" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : '\<CR>'
+" inoremap <expr><TAB> pumvisible() ? '\<C-n>' : '\<TAB>'
