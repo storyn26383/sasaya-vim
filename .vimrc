@@ -212,7 +212,7 @@ autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 " let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\h\w*\|\h\w*::'
 
 " emmet
-" let g:user_emmet_leader_key='<C-Y>'
+let g:user_emmet_leader_key=','
 
 " =================
 "  key remap
