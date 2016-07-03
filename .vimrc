@@ -292,6 +292,10 @@ nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
 " NERDTree
 nnoremap <silent> <Leader>kb :NERDTreeToggle<CR>
 
+" tcomment
+nmap <Leader>/ gcc
+vmap <Leader>/ gc
+
 " php namespace
 function! IPhpInsertUse()
     call PhpInsertUse()
