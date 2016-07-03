@@ -225,18 +225,17 @@ let g:mapleader=','
 " easy escaping to normal mode
 imap jj <esc>
 
-" down is really the next line
-nnoremap j gj
-nnoremap k gk
-
 " fast save
-nmap <Leader>w :w<CR>
+nmap <Leader>s :w<CR>
 
 " tig
 nmap <Leader>g :!tig<CR>
 
 " ctags
 nmap <Leader>c :!ctags -R --languages=PHP<CR>
+
+" close buffer
+nmap <C-W> :bd<CR>
 
 " fold
 nmap <Leader>k1 :set foldlevel=0<CR>
@@ -251,7 +250,10 @@ nmap <Leader>k9 :set foldlevel=8<CR>
 nmap <Leader>k0 :set foldlevel=100<CR>
 
 " omni complete
-imap <Leader>xo <C-X><C-O>
+imap <Leader><TAB> <C-X><C-O>
+
+" go to definition
+nmap g[ <C-O>
 
 " force myself to not to use the error keys
 " map <UP> <NOP>
@@ -280,7 +282,7 @@ nmap <C-h> :bprevious<CR>
 nmap <C-l> :bnext<CR>
 
 " cancel searched highlight
-noremap <CR> :nohlsearch<CR>
+noremap <Leader><Space> :nohlsearch<CR>
 
 " ctrlp
 nnoremap <silent> <Leader>t :CtrlPTag<CR>
