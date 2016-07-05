@@ -118,6 +118,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'stephpy/vim-php-cs-fixer'
+Plugin 'scrooloose/syntastic'
 Plugin 'ervandew/supertab'
 Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/vimproc.vim'
@@ -129,7 +130,6 @@ Plugin 'shawncplus/phpcomplete.vim'
 " Plugin 'Shougo/neosnippet.vim'
 " Plugin 'Shougo/neosnippet-snippets'
 " Plugin 'Valloric/YouCompleteMe'
-" Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()                    " required
@@ -189,6 +189,20 @@ let g:indentLine_showFirstIndentLevel=1
 
 " php cs fixer
 let g:php_cs_fixer_level='psr2'
+let g:php_cs_fixer_enable_default_mapping=0
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=0
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=1
+let g:syntastic_aggregate_errors=1
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+let g:syntastic_php_phpcs_args='--standard=psr2'
 
 " phpcomplete
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
@@ -313,17 +327,7 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>f :call PhpInsertUse()<CR>
 
 " php cs fixer
-autocmd FileType php nnoremap <silent><leader>pf :w<CR> :call PhpCsFixerFixFile()<CR>
-
-" Syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-"
-" let g:syntastic_always_populate_loc_list=1
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_check_on_open=1
-" let g:syntastic_check_on_wq=0
+autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
 
 " neocomplete
 " inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : '\<CR>'
