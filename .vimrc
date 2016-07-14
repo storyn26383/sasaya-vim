@@ -92,6 +92,9 @@ autocmd WinLeave * setlocal nocursorline
 " remove tailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
+" todo file
+command Todo :e ~/Documents/todo.md
+
 " set the runtime path to include Vundle and initialize
 filetype off                         " required
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -124,6 +127,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'shawncplus/phpcomplete.vim'
+" Plugin 'digitaltoad/vim-jade'
+" Plugin 'tpope/vim-haml'
+
 " Plugin 'm2mdas/phpcomplete-extended'
 " Plugin 'm2mdas/phpcomplete-extended-laravel'
 " Plugin 'Shougo/neocomplete.vim'
@@ -150,10 +156,10 @@ filetype plugin indent on            " required
 
 " ctrlp
 let g:ctrlp_custom_ignore={
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\.DS_Store$',
-  \ 'binary file': '\v\.(exe|so|dll)$',
-  \ }
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\.DS_Store$',
+    \ 'binary file': '\v\.(exe|so|dll)$',
+    \ }
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
@@ -249,7 +255,7 @@ nmap <Leader>g :!tig<CR>
 nmap <Leader>c :!ctags -R --languages=PHP<CR>
 
 " close buffer
-nmap <C-W> :bd<CR>
+nmap <Leader>w :bd<CR>
 
 " fold
 nmap <Leader>k1 :set foldlevel=0<CR>

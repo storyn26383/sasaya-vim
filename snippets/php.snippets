@@ -1,3 +1,36 @@
+snippet for
+	for (\$${1:i} = 0; \$${1:i} < ${2:0}; \$${1:i}++) {
+		${3://}
+	}
+
+snippet foreach
+	foreach (\$${1:array} as \$${2:key} => \$${3:value}) {
+		${4://}
+	}
+
+snippet switch
+	switch (${1:true}) {
+		case ${2:true}:
+			${3://}
+			break;
+
+		default:
+			${4://}
+			break;
+	}
+
+snippet func
+	function ${1:functionName}(${2}) {
+		${3://}
+	}
+
+snippet try
+	try {
+		${1://}
+	} catch (${2:Exception} \$e) {
+		${3://}
+	}
+
 snippet pubf
 	public function ${1:methodName}(${2})
 	{
