@@ -93,7 +93,7 @@ autocmd WinLeave * setlocal nocursorline
 autocmd BufWritePre * :%s/\s\+$//e
 
 " todo file
-command Todo :e ~/Documents/todo.md
+command! Todo :e ~/Documents/todo.md
 
 " set the runtime path to include Vundle and initialize
 filetype off                         " required
@@ -127,7 +127,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'shawncplus/phpcomplete.vim'
-" Plugin 'digitaltoad/vim-jade'
+Plugin 'digitaltoad/vim-pug'
 " Plugin 'tpope/vim-haml'
 
 " Plugin 'm2mdas/phpcomplete-extended'
@@ -252,7 +252,7 @@ nmap <Leader>s :w<CR>
 nmap <Leader>g :!tig<CR>
 
 " ctags
-nmap <Leader>c :!ctags -R --languages=PHP<CR>
+nmap <Leader>c :!ctags -R --languages=PHP --exclude=storage/app --exclude=storage/framework --exclude=storage/logs<CR>
 
 " close buffer
 nmap <Leader>w :bd<CR>

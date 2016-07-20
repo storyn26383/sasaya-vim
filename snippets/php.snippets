@@ -112,3 +112,25 @@ snippet this
 snippet .
 	->${1}
 
+snippet phpunit
+	use PHPUnit\Framework\TestCase;
+
+	class Test${1:Case} extends TestCase
+	{
+		/**
+		 * @test
+		 */
+		public function ${2:methodName}()
+		{
+			${3://}
+		}
+	}
+
+snippet test
+    /**
+     * @test
+     */
+	public function ${1:methodName}()
+	{
+		${2://}
+	}
