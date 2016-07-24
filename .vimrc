@@ -198,9 +198,9 @@ let g:php_cs_fixer_level='psr2'
 let g:php_cs_fixer_enable_default_mapping=0
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=0
@@ -209,6 +209,9 @@ let g:syntastic_check_on_wq=1
 let g:syntastic_aggregate_errors=1
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_php_phpcs_args='--standard=psr2'
+
+" supertab
+let g:SuperTabCrMapping=1
 
 " phpcomplete
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
