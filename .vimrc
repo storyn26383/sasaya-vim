@@ -159,6 +159,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " filetype
 " autocmd BufRead,BufNewFile,BufReadPre *.jade set filetype=pug
+autocmd FileType pug setlocal sw=2
+autocmd FileType less setlocal sw=2
+autocmd FileType scss setlocal sw=2
+autocmd FileType javascript setlocal sw=2
 
 " todo file
 command! Todo :e ~/Documents/todo.md
