@@ -158,7 +158,7 @@ autocmd WinLeave * setlocal nocursorline
 autocmd BufWritePre * :%s/\s\+$//e
 
 " filetype
-" autocmd BufRead,BufNewFile,BufReadPre *.jade set filetype=pug
+autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
 autocmd FileType pug setlocal sw=2
 autocmd FileType less setlocal sw=2
 autocmd FileType scss setlocal sw=2
@@ -205,6 +205,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 
 " indentLine
 let g:indentLine_enabled=1
+let g:indentLine_faster=1
 let g:indentLine_char='┆'
 let g:indentLine_first_char='┆'
 let g:indentLine_color_term=239
