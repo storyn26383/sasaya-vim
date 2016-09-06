@@ -20,7 +20,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'Townk/vim-autoclose'
-Plugin 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -158,7 +158,7 @@ autocmd WinLeave * setlocal nocursorline
 autocmd BufWritePre * :%s/\s\+$//e
 
 " filetype
-autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
+" autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
 autocmd FileType pug setlocal sw=2
 autocmd FileType less setlocal sw=2
 autocmd FileType scss setlocal sw=2
@@ -204,12 +204,12 @@ let g:nerdtree_tabs_focus_on_files=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 " indentLine
-let g:indentLine_enabled=1
-let g:indentLine_faster=1
-let g:indentLine_char='┆'
-let g:indentLine_first_char='┆'
-let g:indentLine_color_term=239
-let g:indentLine_showFirstIndentLevel=1
+" let g:indentLine_enabled=1
+" let g:indentLine_faster=1
+" let g:indentLine_char='┆'
+" let g:indentLine_first_char='┆'
+" let g:indentLine_color_term=239
+" let g:indentLine_showFirstIndentLevel=1
 
 " php cs fixer
 let g:php_cs_fixer_level='psr2'
