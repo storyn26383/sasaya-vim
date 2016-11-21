@@ -36,6 +36,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'tpope/vim-haml'
+Plugin 'airblade/vim-gitgutter'
 
 " Plugin 'm2mdas/phpcomplete-extended'
 " Plugin 'm2mdas/phpcomplete-extended-laravel'
