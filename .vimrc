@@ -316,9 +316,9 @@ vmap <TAB> >gv
 vmap <S-TAB> <gv
 
 " move lines up and down using ctrl+[jk]
-nmap <C-k> mz:m-2<CR>`z
 nmap <C-j> mz:m+<CR>`z
-vmap <C-h> :m'>+<CR>`<my`>mzgv`yo`z
+nmap <C-k> mz:m-2<CR>`z
+vmap <C-j> :m'>+<CR>`<my`>mzgv`yo`z
 vmap <C-k> :m'<-2<CR>`>my`<mzgv`yo`z
 
 " move to the prev or next buffer using ctrl+[hl]
