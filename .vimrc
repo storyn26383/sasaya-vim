@@ -272,6 +272,7 @@ nmap <Leader>s :w<CR>
 
 " tig
 nmap <Leader>g :!tig<CR>
+nmap <Leader>B :exec '!tig blame % +'.line('.')<CR>
 
 " ctags
 nmap <Leader>c :!ctags -R --languages=PHP --exclude=storage/app --exclude=storage/framework --exclude=storage/logs<CR>
