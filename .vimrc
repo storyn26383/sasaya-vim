@@ -296,6 +296,7 @@ nmap <Leader>k0 :set foldlevel=100<CR>
 imap <Leader><TAB> <C-X><C-O>
 
 " go to definition
+nmap g] g<C-]>
 nmap g[ <C-O>
 
 " force myself to not to use the error keys
