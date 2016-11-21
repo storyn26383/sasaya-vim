@@ -264,6 +264,17 @@ let g:user_emmet_leader_key=','
 let mapleader=','
 let g:mapleader=','
 
+" command mode
+cmap <C-a> <HOME>
+cmap <C-e> <END>
+cnoremap <C-b> <LEFT>
+cnoremap <C-d> <DEL>
+cnoremap <C-f> <RIGHT>
+cnoremap <C-n> <DOWN>
+cnoremap <C-p> <UP>
+cnoremap <ESC><C-b> <S-LEFT>
+cnoremap <ESC><C-f> <S-RIGHT>
+
 " easy escaping to normal mode
 imap jj <esc>
 
