@@ -36,6 +36,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'tpope/vim-haml'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'airblade/vim-gitgutter'
 
 " Plugin 'm2mdas/phpcomplete-extended'
@@ -276,17 +277,17 @@ cnoremap <ESC><C-b> <S-LEFT>
 cnoremap <ESC><C-f> <S-RIGHT>
 
 " easy escaping to normal mode
-imap jj <esc>
+" imap jj <esc>
 
 " fast save
 nmap <Leader>s :w<CR>
 
 " tig
-nmap <Leader>g :!tig<CR>
+" nmap <Leader>g :!tig<CR>
 nmap <Leader>B :exec '!tig blame % +'.line('.')<CR>
 
 " ctags
-nmap <Leader>c :!ctags -R --languages=PHP --exclude=storage/app --exclude=storage/framework --exclude=storage/logs<CR>
+nmap <Leader>c :!ctags<CR>
 
 " close buffer
 nmap <Leader>w :bd<CR>
@@ -352,8 +353,13 @@ nmap <Leader>/ gcc
 vmap <Leader>/ gc
 
 " php namespace
+function! SortUseWithLength()
+    silent execute "normal! mzgg/namespace\<CR>/use\<CR>V/class\\|trait\\|interface\<CR>?use\<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
+endfunction
+
 function! IPhpInsertUse()
     call PhpInsertUse()
+    call SortUseWithLength()
     call feedkeys('a', 'n')
 endfunction
 
@@ -362,10 +368,19 @@ function! IPhpExpandClass()
     call feedkeys('a', 'n')
 endfunction
 
+function! NPhpInsertUse()
+    call PhpInsertUse()
+    call SortUseWithLength()
+endfunction
+
+function! NPhpExpandClass()
+    call PhpExpandClass()
+endfunction
+
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php inoremap <Leader>f <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>f :call PhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>e :call NPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>f :call NPhpInsertUse()<CR>
 
 " php cs fixer
 autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
