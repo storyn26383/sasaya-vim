@@ -354,6 +354,10 @@ nnoremap <silent> <Leader>kb :NERDTreeToggle<CR>
 nmap <Leader>/ gcc
 vmap <Leader>/ gc
 
+" easy align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 " php namespace
 function! SortUseWithLength()
     silent execute "normal! mzgg/namespace\<CR>/use\<CR>V/class\\|trait\\|interface\<CR>?use\<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
