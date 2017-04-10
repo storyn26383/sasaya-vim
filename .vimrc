@@ -37,6 +37,7 @@ Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'tpope/vim-haml'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'posva/vim-vue'
 Plugin 'airblade/vim-gitgutter'
 
 " Plugin 'm2mdas/phpcomplete-extended'
@@ -165,6 +166,7 @@ autocmd FileType pug setlocal sw=2
 autocmd FileType less setlocal sw=2
 autocmd FileType scss setlocal sw=2
 autocmd FileType javascript setlocal sw=2
+autocmd FileType vue.html.javascript.css setlocal sw=2 ft=vue.pug.javascript.scss
 
 " todo file
 command! Todo :e ~/Documents/todo.md
