@@ -160,6 +160,23 @@ autocmd WinLeave * setlocal nocursorline
 " remove tailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
+" auto update tags
+function! UpdateTags()
+    let tags = 'tags'
+
+    if filereadable(tags)
+        let file = substitute(expand('%:p'), getcwd() . '/', '', '')
+
+        " remove tags of file
+        call system('sed -ri "/\s+' . escape(file, './') . '/d" ' . tags)
+
+        " append tags of file
+        call system('ctags -a "' . file . '"')
+    endif
+endfunction
+
+autocmd BufWritePost *.php call UpdateTags()
+
 " filetype
 " autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
 autocmd FileType pug setlocal sw=2
