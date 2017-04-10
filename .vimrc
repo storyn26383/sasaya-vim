@@ -360,7 +360,7 @@ nmap ga <Plug>(EasyAlign)
 
 " php namespace
 function! SortUseWithLength()
-    silent execute "normal! mzgg/namespace\<CR>/use\<CR>V/class\\|trait\\|interface\<CR>?use\<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
+    silent execute "normal! mzgg/namespace\<CR>/use \<CR>V/class\\|trait\\|interface\<CR>?use \<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
 endfunction
 
 function! IPhpInsertUse()
