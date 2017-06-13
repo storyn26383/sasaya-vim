@@ -326,6 +326,9 @@ nmap <Leader>k8 :set foldlevel=7<CR>
 nmap <Leader>k9 :set foldlevel=8<CR>
 nmap <Leader>k0 :set foldlevel=100<CR>
 
+" fast asign variable
+nmap <Leader>v yiw/}<CR>O$this-><ESC>pa = $<ESC>pa;<ESC>?__construct<CR>Oprotected $<ESC>pa;<CR><ESC>/__construct<CR>/<C-R>"<CR>:nohl<CR>
+
 " omni complete
 imap <Leader><TAB> <C-X><C-O>
 
