@@ -309,7 +309,7 @@ nmap <Leader>s :w<CR>
 nmap <Leader>B :exec '!tig blame % +'.line('.')<CR>
 
 " ctags
-nmap <Leader>c :!ctags<CR>
+nmap <Leader>c :!ctags &<CR>
 
 " close buffer
 nmap <Leader>w :bd<CR>
