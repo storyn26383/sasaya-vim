@@ -75,7 +75,7 @@ snippet _c
 	}
 
 snippet class
-	namespace ${1:Foo\Bar};
+	namespace ${1:App};
 
 	class ${2:ClassName}
 	{
@@ -83,7 +83,7 @@ snippet class
 	}
 
 snippet aclass
-	namespace ${1:Foo\Bar};
+	namespace ${1:App};
 
 	abstract class ${2:ClassName}
 	{
@@ -91,7 +91,7 @@ snippet aclass
 	}
 
 snippet interface
-	namespace ${1:Foo\Bar};
+	namespace ${1:App};
 
 	interface ${2:InterfaceName}
 	{
@@ -99,7 +99,7 @@ snippet interface
 	}
 
 snippet trait
-	namespace ${1:Foo\Bar};
+	namespace ${1:App};
 
 	trait ${2:TraitName}
 	{
@@ -113,24 +113,28 @@ snippet .
 	->${1}
 
 snippet phpunit
+	namespace Tests;
+
+	use Mockery as m;
 	use PHPUnit\Framework\TestCase;
 
 	class ${1}Test extends TestCase
 	{
-		/**
-		 * @test
-		 */
-		public function ${2:methodName}()
+		public function tearDown()
 		{
-			${3://}
+			m::close();
+
+			parent::tearDown();
+		}
+
+		public function test${2:TestName}()
+		{
+			${3:$this->assertTrue(true);}
 		}
 	}
 
 snippet test
-    /**
-     * @test
-     */
-	public function ${1:methodName}()
+	public function test${1:TestName}()
 	{
-		${2://}
+		${2:$this->assertTrue(true);}
 	}
