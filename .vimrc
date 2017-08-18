@@ -13,36 +13,43 @@ Plugin 'VundleVim/Vundle.vim'
 " Plgins
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tpope/vim-surround'
-Plugin 'ap/vim-css-color'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'Townk/vim-autoclose'
 " Plugin 'Yggdroot/indentLine'
+Plugin 'tpope/vim-surround'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'Townk/vim-autoclose'
+Plugin 'terryma/vim-multiple-cursors'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'ervandew/supertab'
+
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+
 Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'stephpy/vim-php-cs-fixer'
-Plugin 'scrooloose/syntastic'
-Plugin 'ervandew/supertab'
-Plugin 'mattn/emmet-vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Shougo/unite.vim'
 Plugin 'shawncplus/phpcomplete.vim'
+
 Plugin 'digitaltoad/vim-pug'
-" Plugin 'tpope/vim-haml'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'posva/vim-vue'
-Plugin 'jwalton512/vim-blade'
+" Plugin 'tpope/vim-haml'
+" Plugin 'kchmck/vim-coffee-script'
+" Plugin 'jwalton512/vim-blade'
+
+Plugin 'ap/vim-css-color'
+Plugin 'mattn/emmet-vim'
+
+Plugin 'scrooloose/syntastic'
+
 Plugin 'airblade/vim-gitgutter'
 
 " Plugin 'm2mdas/phpcomplete-extended'
 " Plugin 'm2mdas/phpcomplete-extended-laravel'
+" Plugin 'Shougo/vimproc.vim'
+" Plugin 'Shougo/unite.vim'
 " Plugin 'Shougo/neocomplete.vim'
 " Plugin 'Shougo/neosnippet.vim'
 " Plugin 'Shougo/neosnippet-snippets'
@@ -99,8 +106,11 @@ set wildmenu                          " make tab completion for files/buffers ac
 set key=                              " disable encryption
 set synmaxcol=256
 set viminfo=                          " disable .viminfo file
-set ttyfast                           " send more chars while redrawing
 set completeopt=menuone
+set ttyfast                           " send more chars while redrawing
+set lazyredraw                        " speedup vim
+set timeoutlen=1000
+set ttimeoutlen=0
 
 set foldmethod=indent
 set foldlevel=100
@@ -186,7 +196,10 @@ autocmd FileType scss setlocal sw=2
 autocmd FileType html setlocal sw=2
 autocmd FileType blade setlocal sw=2
 autocmd FileType javascript setlocal sw=2
-autocmd FileType vue.html.javascript.css setlocal sw=2 ft=vue.pug.javascript.scss
+autocmd FileType vue setlocal sw=2
+" autocmd FileType vue.pug.javascript.css setlocal sw=2
+" autocmd FileType vue.html.javascript.css setlocal sw=2
+autocmd BufNewFile,BufRead *.vue setlocal ft=javascript
 
 " todo file
 command! Todo :e ~/Documents/todo.md
