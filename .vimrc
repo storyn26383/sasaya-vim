@@ -136,9 +136,9 @@ set ignorecase                        " ignore case when searching
 set smartcase
 set smarttab                          " insert tabs on the start of a line according to
 set expandtab                         " replace <TAB> with spaces
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
 set shortmess=Ia                      " remove splash wording
 
 " disable sound on errors
@@ -173,32 +173,24 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " auto update tags
 function! UpdateTags()
-    let tags = 'tags'
+  let tags = 'tags'
 
-    if filereadable(tags)
-        let file = substitute(expand('%:p'), getcwd() . '/', '', '')
+  if filereadable(tags)
+    let file = substitute(expand('%:p'), getcwd() . '/', '', '')
 
-        " remove tags of file
-        call system('sed -ri "/\s+' . escape(file, './') . '/d" ' . tags)
+    " remove tags of file
+    call system('sed -ri "/\s+' . escape(file, './') . '/d" ' . tags)
 
-        " append tags of file
-        call system('ctags -a "' . file . '"')
-    endif
+    " append tags of file
+    call system('ctags -a "' . file . '"')
+  endif
 endfunction
 
 autocmd BufWritePost *.php call UpdateTags()
 
 " filetype
 " autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
-autocmd FileType pug setlocal sw=2
-autocmd FileType less setlocal sw=2
-autocmd FileType scss setlocal sw=2
-autocmd FileType html setlocal sw=2
-autocmd FileType blade setlocal sw=2
-autocmd FileType javascript setlocal sw=2
-autocmd FileType vue setlocal sw=2
-" autocmd FileType vue.pug.javascript.css setlocal sw=2
-" autocmd FileType vue.html.javascript.css setlocal sw=2
+autocmd FileType php setlocal sw=4 sts=4 ts=4
 autocmd BufNewFile,BufRead *.vue setlocal ft=javascript
 
 " todo file
@@ -210,10 +202,10 @@ command! Todo :e ~/Documents/todo.md
 
 " ctrlp
 let g:ctrlp_custom_ignore={
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\.DS_Store$',
-    \ 'binary file': '\v\.(exe|so|dll)$',
-    \ }
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\.DS_Store$',
+  \ 'binary file': '\v\.(exe|so|dll)$',
+  \ }
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
@@ -281,11 +273,11 @@ autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 " let g:neocomplete#lock_buffer_name_pattern='\*ku\*'
 " let g:neocomplete#sources#syntax#min_keyword_length=3
 " if !exists('g:neocomplete#keyword_patterns')
-"     let g:neocomplete#keyword_patterns={}
+"   let g:neocomplete#keyword_patterns={}
 " endif
 " let g:neocomplete#keyword_patterns['default']='\h\w*'
 " if !exists('g:neocomplete#sources#omni#input_patterns')
-"     let g:neocomplete#sources#omni#input_patterns={}
+"   let g:neocomplete#sources#omni#input_patterns={}
 " endif
 " let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\h\w*\|\h\w*::'
 
@@ -396,27 +388,27 @@ nmap ga <Plug>(EasyAlign)
 
 " php namespace
 function! SortUseWithLength()
-    silent execute "normal! mzgg/namespace\<CR>/use \<CR>V/class\\|trait\\|interface\<CR>?use \<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
+  silent execute "normal! mzgg/namespace\<CR>/use \<CR>V/class\\|trait\\|interface\<CR>?use \<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
 endfunction
 
 function! IPhpInsertUse()
-    call PhpInsertUse()
-    call SortUseWithLength()
-    call feedkeys('a', 'n')
+  call PhpInsertUse()
+  call SortUseWithLength()
+  call feedkeys('a', 'n')
 endfunction
 
 function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
+  call PhpExpandClass()
+  call feedkeys('a', 'n')
 endfunction
 
 function! NPhpInsertUse()
-    call PhpInsertUse()
-    call SortUseWithLength()
+  call PhpInsertUse()
+  call SortUseWithLength()
 endfunction
 
 function! NPhpExpandClass()
-    call PhpExpandClass()
+  call PhpExpandClass()
 endfunction
 
 autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
