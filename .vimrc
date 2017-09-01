@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plgins
+Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -126,7 +127,8 @@ set guioptions-=r
 set guioptions-=R
 
 syntax on                             " syntax highlight
-colorscheme Tomorrow-Night
+let base16colorspace=256
+colorscheme base16-tomorrow-night
 
 set nobackup                          " no *~ backup files
 set noswapfile
@@ -217,7 +219,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#left_alt_sep=''
 let g:airline#extensions#tabline#buffer_nr_show=1
 let g:airline#extensions#tabline#buffer_nr_format='%s: '
-let g:airline_theme='tomorrow'
+let g:airline_theme='base16'
 
 " NERDTree
 let NERDTreeQuitOnOpen=1
