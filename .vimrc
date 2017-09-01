@@ -35,10 +35,12 @@ Plugin 'stephpy/vim-php-cs-fixer'
 Plugin 'shawncplus/phpcomplete.vim'
 
 Plugin 'digitaltoad/vim-pug'
-Plugin 'posva/vim-vue'
 " Plugin 'tpope/vim-haml'
-" Plugin 'kchmck/vim-coffee-script'
 " Plugin 'jwalton512/vim-blade'
+
+Plugin 'pangloss/vim-javascript'
+" Plugin 'posva/vim-vue'
+" Plugin 'kchmck/vim-coffee-script'
 
 Plugin 'ap/vim-css-color'
 Plugin 'mattn/emmet-vim'
@@ -191,9 +193,14 @@ endfunction
 autocmd BufWritePost *.php call UpdateTags()
 
 " filetype
-" autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
 autocmd FileType php setlocal sw=4 sts=4 ts=4
 autocmd BufNewFile,BufRead *.vue setlocal ft=javascript
+" autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
+
+" auto complete
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 " todo file
 command! Todo :e ~/Documents/todo.md
@@ -261,12 +268,13 @@ let g:syntastic_php_phpcs_args='--standard=psr2'
 
 " supertab
 let g:SuperTabCrMapping=1
-
-" phpcomplete
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-" autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 " let g:SuperTabDefaultCompletionType='<C-X><C-O>'
 " let g:SuperTabContextDefaultCompletionType='<C-X><C-O>'
+
+" tcomment
+call tcomment#DefineType('pug', '//- %s')
+
+" php complete
 " let g:phpcomplete_index_composer_command='composer'
 
 " neocomplete
