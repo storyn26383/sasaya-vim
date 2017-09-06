@@ -94,7 +94,7 @@ set numberwidth=4
 " set relativenumber
 set title
 set showcmd
-set showmode
+set noshowmode
 set nobomb                            " no BOM(Byte Order Mark)
 set nostartofline
 set laststatus=2
