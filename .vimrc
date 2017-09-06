@@ -42,6 +42,9 @@ Plugin 'pangloss/vim-javascript'
 " Plugin 'posva/vim-vue'
 " Plugin 'kchmck/vim-coffee-script'
 
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'cakebaker/scss-syntax.vim'
+
 Plugin 'ap/vim-css-color'
 Plugin 'mattn/emmet-vim'
 
@@ -295,6 +298,10 @@ call tcomment#DefineType('pug', '//- %s')
 
 " emmet
 let g:user_emmet_leader_key=','
+
+" vue
+let g:tcommentGuessFileType_vue = 'pug'
+let g:user_emmet_settings = { 'vue': { 'extends': 'css' } }
 
 " =================
 "  key remap
