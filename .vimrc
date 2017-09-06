@@ -128,10 +128,6 @@ set guioptions-=L
 set guioptions-=r
 set guioptions-=R
 
-syntax on                             " syntax highlight
-let base16colorspace=256
-colorscheme base16-tomorrow-night
-
 set nobackup                          " no *~ backup files
 set noswapfile
 set nowritebackup
@@ -168,6 +164,12 @@ set wildignore+=*.DS_Store
 set wildignore+=log/**
 set wildignore+=tmp/**
 
+" theme
+syntax on                             " syntax highlight
+let base16colorspace=256
+colorscheme base16-tomorrow-night
+" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+
 " cursorline switched while focus is switched to another split window
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
@@ -194,7 +196,7 @@ autocmd BufWritePost *.php call UpdateTags()
 
 " filetype
 autocmd FileType php setlocal sw=4 sts=4 ts=4
-autocmd BufNewFile,BufRead *.vue setlocal ft=javascript
+" autocmd BufNewFile,BufRead *.vue setlocal ft=javascript
 " autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
 
 " auto complete
@@ -303,15 +305,16 @@ let mapleader=','
 let g:mapleader=','
 
 " command mode
-cmap <C-a> <HOME>
-cmap <C-e> <END>
-cnoremap <C-b> <LEFT>
-cnoremap <C-d> <DEL>
-cnoremap <C-f> <RIGHT>
-cnoremap <C-n> <DOWN>
-cnoremap <C-p> <UP>
-cnoremap <ESC><C-b> <S-LEFT>
-cnoremap <ESC><C-f> <S-RIGHT>
+cmap <C-A> <HOME>
+cmap <C-E> <END>
+cnoremap <C-B> <LEFT>
+cnoremap <C-D> <DEL>
+cnoremap <C-F> <RIGHT>
+cnoremap <C-H> <BS>
+cnoremap <C-N> <DOWN>
+cnoremap <C-P> <UP>
+cnoremap <ESC><C-B> <S-LEFT>
+cnoremap <ESC><C-F> <S-RIGHT>
 
 " easy escaping to normal mode
 " imap jj <esc>
