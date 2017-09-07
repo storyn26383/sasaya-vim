@@ -39,14 +39,15 @@ Plugin 'digitaltoad/vim-pug'
 " Plugin 'jwalton512/vim-blade'
 
 Plugin 'pangloss/vim-javascript'
-" Plugin 'posva/vim-vue'
 " Plugin 'kchmck/vim-coffee-script'
 
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 
-Plugin 'ap/vim-css-color'
+" Plugin 'ap/vim-css-color'
 Plugin 'mattn/emmet-vim'
+
+Plugin 'storyn26383/vim-vue'
 
 Plugin 'scrooloose/syntastic'
 
