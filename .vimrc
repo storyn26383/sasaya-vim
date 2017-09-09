@@ -217,9 +217,9 @@ command! Todo :e ~/Documents/todo.md
 
 " ctrlp
 let g:ctrlp_custom_ignore={
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'dir':  '\(\.git|\.hg|\.svn\|node_modules\|bower_components\|vendor\)$',
   \ 'file': '\.DS_Store$',
-  \ 'binary file': '\v\.(exe|so|dll)$',
+  \ 'binary file': '\.(exe|so|dll)$',
   \ }
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_mruf_max=500
