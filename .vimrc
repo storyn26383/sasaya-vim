@@ -312,6 +312,18 @@ let g:user_emmet_settings = { 'vue': { 'extends': 'css' } }
 let mapleader=','
 let g:mapleader=','
 
+" do not use the error keys
+" map <BS> <NOP>
+" map <UP> <NOP>
+" map <DOWN> <NOP>
+" map <LEFT> <NOP>
+" map <RIGHT> <NOP>
+" imap <BS> <NOP>
+" imap <UP> <NOP>
+" imap <DOWN> <NOP>
+" imap <LEFT> <NOP>
+" imap <RIGHT> <NOP>
+
 " command mode
 cmap <C-A> <HOME>
 cmap <C-E> <END>
@@ -361,16 +373,6 @@ imap <Leader><TAB> <C-X><C-O>
 " go to definition
 nmap g] g<C-]>
 nmap g[ <C-O>
-
-" force myself to not to use the error keys
-" map <UP> <NOP>
-" map <DOWN> <NOP>
-" map <LEFT> <NOP>
-" map <RIGHT> <NOP>
-" inoremap <UP> <NOP>
-" inoremap <DOWN> <NOP>
-" inoremap <LEFT> <NOP>
-" inoremap <RIGHT> <NOP>
 
 " identation
 nmap <TAB> v>
