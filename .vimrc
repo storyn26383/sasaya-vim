@@ -193,7 +193,7 @@ function! UpdateTags()
     call system('sed -ri "/\s+' . escape(file, './') . '/d" ' . tags)
 
     " append tags of file
-    call system('ctags -a "' . file . '"')
+    call system('ctags -a --kinds-php=citf "' . file . '"')
   endif
 endfunction
 
@@ -357,7 +357,7 @@ nmap <Leader>s :w<CR>
 nmap <Leader>B :exec '!tig blame % +'.line('.')<CR>
 
 " ctags
-nmap <Leader>c :!ctags &<CR>
+nmap <Leader>c :!ctags --recurse --kinds-php=citf &<CR>
 
 " close buffer
 nmap <Leader>w :bd<CR>
