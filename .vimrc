@@ -50,8 +50,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'storyn26383/vim-vue'
 
 Plugin 'scrooloose/syntastic'
-
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mileszs/ack.vim'
 
 " Plugin 'm2mdas/phpcomplete-extended'
 " Plugin 'm2mdas/phpcomplete-extended-laravel'
@@ -303,6 +303,11 @@ let g:user_emmet_leader_key=','
 " vue
 let g:tcommentGuessFileType_vue = 'pug'
 let g:user_emmet_settings = { 'vue': { 'extends': 'css' } }
+
+" ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --ignore "*.lock" --vimgrep'
+endif
 
 " =================
 "  key remap
