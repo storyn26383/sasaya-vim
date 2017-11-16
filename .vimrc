@@ -281,6 +281,10 @@ let g:SuperTabCrMapping=1
 " tcomment
 call tcomment#DefineType('pug', '//- %s')
 
+" php namespace
+let g:php_namespace_sort="'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
+let g:php_namespace_sort_after_insert=1
+
 " php complete
 " let g:phpcomplete_index_composer_command='composer'
 
@@ -416,13 +420,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " php namespace
-function! SortUseWithLength()
-  silent execute "normal! mzgg/namespace\<CR>/use \<CR>V/class\\|trait\\|interface\<CR>?use \<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
-endfunction
-
 function! IPhpInsertUse()
   call PhpInsertUse()
-  call SortUseWithLength()
   call feedkeys('a', 'n')
 endfunction
 
@@ -433,7 +432,6 @@ endfunction
 
 function! NPhpInsertUse()
   call PhpInsertUse()
-  call SortUseWithLength()
 endfunction
 
 function! NPhpExpandClass()
