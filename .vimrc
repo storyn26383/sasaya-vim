@@ -43,6 +43,7 @@ Plugin 'pangloss/vim-javascript'
 
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'wavded/vim-stylus'
 
 " Plugin 'ap/vim-css-color'
 Plugin 'mattn/emmet-vim'
