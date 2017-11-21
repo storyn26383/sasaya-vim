@@ -32,7 +32,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'StanAngeloff/php.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'stephpy/vim-php-cs-fixer'
-Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'lvht/phpcd.vim'
 
 Plugin 'digitaltoad/vim-pug'
 " Plugin 'tpope/vim-haml'
@@ -381,8 +381,9 @@ nmap <Leader>v yiw/}<CR>O$this-><ESC>pa = $<ESC>pa;<ESC>?__construct<CR>Oprotect
 imap <Leader><TAB> <C-X><C-O>
 
 " go to definition
-nmap g] g<C-]>
-nmap g[ <C-O>
+" nmap g] g<C-]>
+nmap g] <C-]>
+nmap g[ <C-T>
 
 " identation
 nmap <TAB> v>
