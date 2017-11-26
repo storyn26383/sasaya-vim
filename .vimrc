@@ -1,81 +1,63 @@
 " =================
-"  Vundle
+"  vim-plug
 " =================
 
-" set the runtime path to include Vundle and initialize
-filetype off                         " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Plgins
-Plugin 'chriskempson/base16-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-" Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-surround'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Townk/vim-autoclose'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'ervandew/supertab'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+" Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
+Plug 'storyn26383/vim-autoclose'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/vim-easy-align'
+Plug 'ervandew/supertab'
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 
-Plugin 'StanAngeloff/php.vim'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'stephpy/vim-php-cs-fixer'
-Plugin 'lvht/phpcd.vim'
+Plug 'StanAngeloff/php.vim'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'stephpy/vim-php-cs-fixer'
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 
-Plugin 'digitaltoad/vim-pug'
-" Plugin 'tpope/vim-haml'
-" Plugin 'jwalton512/vim-blade'
+Plug 'digitaltoad/vim-pug'
+" Plug 'tpope/vim-haml'
+" Plug 'jwalton512/vim-blade'
 
-Plugin 'pangloss/vim-javascript'
-" Plugin 'kchmck/vim-coffee-script'
+Plug 'pangloss/vim-javascript'
+" Plug 'kchmck/vim-coffee-script'
 
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'wavded/vim-stylus'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'wavded/vim-stylus'
 
-" Plugin 'ap/vim-css-color'
-Plugin 'mattn/emmet-vim'
+" Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim'
 
-Plugin 'storyn26383/vim-vue'
+Plug 'storyn26383/vim-vue'
 
-Plugin 'scrooloose/syntastic'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'mileszs/ack.vim'
+Plug 'scrooloose/syntastic'
+Plug 'airblade/vim-gitgutter'
+Plug 'mileszs/ack.vim'
 
-" Plugin 'm2mdas/phpcomplete-extended'
-" Plugin 'm2mdas/phpcomplete-extended-laravel'
-" Plugin 'Shougo/vimproc.vim'
-" Plugin 'Shougo/unite.vim'
-" Plugin 'Shougo/neocomplete.vim'
-" Plugin 'Shougo/neosnippet.vim'
-" Plugin 'Shougo/neosnippet-snippets'
-" Plugin 'Valloric/YouCompleteMe'
+" Plug 'm2mdas/phpcomplete-extended'
+" Plug 'm2mdas/phpcomplete-extended-laravel'
+" Plug 'Shougo/vimproc.vim'
+" Plug 'Shougo/unite.vim'
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
+" Plug 'Valloric/YouCompleteMe'
 
-" All of your Plugins must be added before the following line
-call vundle#end()                    " required
-filetype plugin indent on            " required
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
+call plug#end()
 
 " =================
 "  settings
@@ -170,7 +152,8 @@ set wildignore+=log/**
 set wildignore+=tmp/**
 
 " theme
-syntax on                             " syntax highlight
+filetype plugin indent on
+syntax on
 let base16colorspace=256
 colorscheme base16-tomorrow-night
 " source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
