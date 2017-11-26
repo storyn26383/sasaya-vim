@@ -10,7 +10,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
@@ -46,7 +47,7 @@ Plug 'storyn26383/vim-vue'
 
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
-Plug 'mileszs/ack.vim'
+" Plug 'mileszs/ack.vim'
 
 " Plug 'm2mdas/phpcomplete-extended'
 " Plug 'm2mdas/phpcomplete-extended-laravel'
@@ -199,16 +200,23 @@ command! Todo :e ~/Documents/todo.md
 "  plugin settings
 " =================
 
-" ctrlp
-let g:ctrlp_custom_ignore={
-  \ 'dir':  '\(\.git|\.hg|\.svn\|node_modules\|bower_components\|vendor\)$',
-  \ 'file': '\.DS_Store$',
-  \ 'binary file': '\.(exe|so|dll)$',
+" fzf
+command! -bang -nargs=* BTags call fzf#vim#buffer_tags('', {'options': '--no-reverse'})
+let g:fzf_colors={
+  \ 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment']
   \ }
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
-let g:ctrlp_show_hidden=1
 
 " airline
 let g:airline_powerline_fonts=1
@@ -293,9 +301,9 @@ let g:tcommentGuessFileType_vue = 'pug'
 let g:user_emmet_settings = { 'vue': { 'extends': 'css' } }
 
 " ack.vim
-if executable('ag')
-  let g:ackprg = 'ag --ignore "*.lock" --vimgrep'
-endif
+" if executable('ag')
+"   let g:ackprg = 'ag --ignore "*.lock" --vimgrep'
+" endif
 
 " =================
 "  key remap
@@ -385,12 +393,12 @@ nmap <C-h> :bprevious<CR>
 nmap <C-l> :bnext<CR>
 
 " cancel searched highlight
-noremap <Leader><Space> :nohlsearch<CR>
+nmap <Leader><Space> :nohlsearch<CR>
 
-" ctrlp
-nnoremap <silent> <Leader>t :CtrlPTag<CR>
-nnoremap <silent> <Leader>r :CtrlPBufTag<CR>
-nnoremap <silent> <Leader>b :CtrlPBuffer<CR>
+" fzf
+nmap <C-p> :Files<CR>
+nmap <Leader>t :Tags<CR>
+nmap <Leader>r :BTags<CR>
 
 " NERDTree
 nnoremap <silent> <Leader>kb :NERDTreeToggle<CR>
