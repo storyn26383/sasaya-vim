@@ -2,34 +2,20 @@
 
 ## Installation
 
-1. Change directory to your home directory.
+1. Clone `.vim` to your home directory.
 
     ```bash
-    cd ~
+    git clone https://github.com/storyn26383/sasaya-vim.git ~/.vim
     ```
 
-2. Copy files to your home directory.
+2. Make a symbolic link to vimrc.
 
     ```bash
-    git clone https://github.com/storyn26383/sasaya-vim.git .vim
+    ln -s ~/.vim/.vimrc ~/.vimrc
     ```
 
-3. Make a symbolic link to vimrc.
+3. Install Plugins
 
     ```bash
-    ln -s .vim/.vimrc .vimrc
-    ```
-
-4. Initial and update git submodule
-
-    ```bash
-    cd .vim
-    git submodule init
-    git submodule update
-    ```
-
-5. Install Plugins
-
-    ```bash
-    vim +PluginInstall +qall
+    vim +PlugInstall +qall
     ```
