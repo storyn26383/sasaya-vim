@@ -19,10 +19,7 @@ Plug 'storyn26383/vim-autoclose'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/vim-easy-align'
 Plug 'ervandew/supertab'
-
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+Plug 'SirVer/ultisnips'
 
 Plug 'StanAngeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
@@ -269,6 +266,10 @@ let g:SuperTabCrMapping=1
 " let g:SuperTabDefaultCompletionType='<C-X><C-O>'
 " let g:SuperTabContextDefaultCompletionType='<C-X><C-O>'
 
+" ultisnips
+let g:UltiSnipsJumpForwardTrigger='<TAB>'
+let g:UltiSnipsJumpBackwardTrigger='<S-TAB>'
+
 " tcomment
 call tcomment#DefineType('pug', '//- %s')
 
@@ -383,22 +384,27 @@ vmap <TAB> >gv
 vmap <S-TAB> <gv
 
 " move lines up and down using ctrl+[jk]
-nmap <C-j> mz:m+<CR>`z
-nmap <C-k> mz:m-2<CR>`z
-vmap <C-j> :m'>+<CR>`<my`>mzgv`yo`z
-vmap <C-k> :m'<-2<CR>`>my`<mzgv`yo`z
+nmap <C-J> mz:m+<CR>`z
+nmap <C-K> mz:m-2<CR>`z
+vmap <C-J> :m'>+<CR>`<my`>mzgv`yo`z
+vmap <C-K> :m'<-2<CR>`>my`<mzgv`yo`z
 
 " move to the prev or next buffer using ctrl+[hl]
-nmap <C-h> :bprevious<CR>
-nmap <C-l> :bnext<CR>
+nmap <C-H> :bprevious<CR>
+nmap <C-L> :bnext<CR>
 
 " cancel searched highlight
 nmap <Leader><Space> :nohlsearch<CR>
 
 " fzf
-nmap <C-p> :Files<CR>
+nmap <C-P> :Files<CR>
 nmap <Leader>t :Tags<CR>
 nmap <Leader>r :BTags<CR>
+nmap <Leader>b :Buffers<CR>
+imap <C-X><C-K> <Plug>(fzf-complete-word)
+imap <C-X><C-F> <Plug>(fzf-complete-path)
+imap <C-X><C-J> <Plug>(fzf-complete-file-ag)
+imap <C-X><C-L> <Plug>(fzf-complete-line)
 
 " NERDTree
 nnoremap <silent> <Leader>kb :NERDTreeToggle<CR>

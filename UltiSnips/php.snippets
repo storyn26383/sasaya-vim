@@ -1,0 +1,343 @@
+snippet php
+<?php
+
+
+endsnippet
+
+snippet for
+for ($${1:i} = 0; $$1 < ${2:0}; $$1++) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet foreach
+foreach ($${1:array} as $${2:key} => $${3:value}) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet switch
+switch (${1:true}) {
+	case ${2:true}:
+		${0:${VISUAL}}
+		break;
+
+	default:
+		//
+		break;
+}
+endsnippet
+
+snippet func
+function ${1:functionName}($2) {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet try
+try {
+	${0:${VISUAL}}
+} catch (${1:Exception} $e) {
+	//
+}
+endsnippet
+
+snippet pubf
+public function ${1:methodName}($2)
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet pubsf
+public static function ${1:methodName}($2)
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet prof
+protected function ${1:methodName}($2)
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet prosf
+protected static function ${1:methodName}($2)
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet prif
+private function ${1:methodName}($2)
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet prisf
+private static function ${1:methodName}($2)
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet _c
+${1/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:protected $$2;\\n    )/g}${1/^[^$]*(\$\w+)?.*$/(?1:\\n    )/}public function __construct($1)
+{
+	${1/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:(?1:\\\\n        )$this->$2 = $$2;)/g}${0:${VISUAL}}
+}
+endsnippet
+
+snippet class
+namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+
+class ${2:`!v expand('%:t:r')`}
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet aclass
+namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+
+abstract class ${2:`!v expand('%:t:r')`}
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet interface
+namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+
+interface ${2:`!v expand('%:t:r')`}
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet trait
+namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+
+trait ${2:`!v expand('%:t:r')`}
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet this
+$this->${0:${VISUAL}}
+endsnippet
+
+snippet .
+->${0:${VISUAL}}
+endsnippet
+
+snippet phpunit
+namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+
+use Mockery as m;
+use PHPUnit\Framework\TestCase;
+
+class ${2:`!v expand('%:t:r')`} extends TestCase
+{
+	public function tearDown()
+	{
+		m::close();
+
+		parent::tearDown();
+	}
+
+	public function test${2:TestName}()
+	{
+		${0:${VISUAL}}
+	}
+}
+endsnippet
+
+snippet test
+public function test${1:TestName}()
+{
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet 給我魔法
+public function testGet()
+{
+	//
+}
+
+public function testSet()
+{
+	//
+}
+
+public function testIsset()
+{
+	//
+}
+
+public function testUnset()
+{
+	//
+}
+
+public function testCall()
+{
+	//
+}
+
+public function testCallStatic()
+{
+	//
+}
+
+public function testToString()
+{
+	//
+}
+
+public function testInvoke()
+{
+	//
+}
+
+public function testOffsetGet()
+{
+	//
+}
+
+public function testOffsetSet()
+{
+	//
+}
+
+public function testOffsetExists()
+{
+	//
+}
+
+public function testOffsetUnset()
+{
+	//
+}
+
+public function testCount()
+{
+	//
+}
+
+public function testGetIterator()
+{
+	//
+}
+
+public function testJsonSerialize()
+{
+	//
+}
+endsnippet
+
+snippet 給我屬性重載
+protected $data = [];
+
+public function __construct(array $data = [])
+{
+	$this->data = $data;
+}
+
+public function getData()
+{
+	return $this->data;
+}
+
+public function __get($key)
+{
+	//
+}
+
+public function __set($key, $value)
+{
+	//
+}
+
+public function __isset($key)
+{
+	//
+}
+
+public function __unset($key)
+{
+	//
+}
+endsnippet
+
+snippet 給我方法重載
+public function __call($method, $args)
+{
+	//
+}
+
+public static function __callStatic($method, $args)
+{
+	//
+}
+endsnippet
+
+snippet 給我轉型
+public function __toString()
+{
+	//
+}
+
+public function __invoke()
+{
+	//
+}
+endsnippet
+
+snippet 給我陣列
+public function offsetGet($key)
+{
+	//
+}
+
+public function offsetSet($key, $value)
+{
+	//
+}
+
+public function offsetExists($key)
+{
+	//
+}
+
+public function offsetUnset($key)
+{
+	//
+}
+endsnippet
+
+snippet 給我可數的
+public function count()
+{
+	//
+}
+endsnippet
+
+snippet 給我迭代
+public function getIterator()
+{
+	//
+}
+endsnippet
+
+snippet 給我JSON
+public function jsonSerialize()
+{
+	//
+}
+endsnippet
