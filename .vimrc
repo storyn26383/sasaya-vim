@@ -219,86 +219,86 @@ let g:fzf_colors={
   \ }
 
 " airline
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#left_alt_sep=''
-let g:airline#extensions#tabline#buffer_nr_show=1
-let g:airline#extensions#tabline#buffer_nr_format='%s: '
-let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_format = '%s: '
+let g:airline_theme = 'base16'
 
 " NERDTree
-let NERDTreeQuitOnOpen=1
-let NERDTreeChDirMode=2
-let NERDTreeMouseMode=2
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
-let NERDTreeShowHidden=1
-let NERDTreeShowBookmarks=0
-let NERDTreeIgnore=['\.git$', '\.DS_Store$']
-let g:NERDTreeWinSize=30
-let g:nerdtree_tabs_focus_on_files=1
-let g:nerdtree_tabs_open_on_gui_startup=0
+let NERDTreeQuitOnOpen = 1
+let NERDTreeChDirMode = 2
+let NERDTreeMouseMode = 2
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeShowHidden = 1
+let NERDTreeShowBookmarks = 0
+let NERDTreeIgnore = ['\.git$', '\.DS_Store$']
+let g:NERDTreeWinSize = 30
+let g:nerdtree_tabs_focus_on_files = 1
+let g:nerdtree_tabs_open_on_gui_startup = 0
 
 " indentLine
-" let g:indentLine_enabled=1
-" let g:indentLine_faster=1
-" let g:indentLine_char='┆'
-" let g:indentLine_first_char='┆'
-" let g:indentLine_color_term=239
-" let g:indentLine_showFirstIndentLevel=1
+" let g:indentLine_enabled = 1
+" let g:indentLine_faster = 1
+" let g:indentLine_char = '┆'
+" let g:indentLine_first_char = '┆'
+" let g:indentLine_color_term = 239
+" let g:indentLine_showFirstIndentLevel = 1
 
 " php cs fixer
-let g:php_cs_fixer_level='psr2'
-let g:php_cs_fixer_enable_default_mapping=0
+let g:php_cs_fixer_level = 'psr2'
+let g:php_cs_fixer_enable_default_mapping = 0
 
 " syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+" set statusline+ = %#warningmsg#
+" set statusline+ = %{SyntasticStatuslineFlag()}
+" set statusline+ = %*
 
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=0
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=1
-let g:syntastic_aggregate_errors=1
-let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_php_phpcs_args='--standard=psr2'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_php_checkers = ['php', 'phpcs']
+let g:syntastic_php_phpcs_args = '--standard=psr2'
 
 " supertab
-let g:SuperTabCrMapping=1
-" let g:SuperTabDefaultCompletionType='<C-X><C-O>'
-" let g:SuperTabContextDefaultCompletionType='<C-X><C-O>'
+let g:SuperTabCrMapping = 1
+" let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+" let g:SuperTabContextDefaultCompletionType = '<C-X><C-O>'
 
 " ultisnips
-let g:UltiSnipsJumpForwardTrigger='<TAB>'
-let g:UltiSnipsJumpBackwardTrigger='<S-TAB>'
+let g:UltiSnipsJumpForwardTrigger = '<TAB>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-TAB>'
 
 " tcomment
 call tcomment#DefineType('pug', '//- %s')
 
 " php namespace
-let g:php_namespace_sort="'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
-let g:php_namespace_sort_after_insert=1
+let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
+let g:php_namespace_sort_after_insert = 1
 
 " php complete
-" let g:phpcomplete_index_composer_command='composer'
+" let g:phpcomplete_index_composer_command = 'composer'
 
 " neocomplete
-" let g:neocomplete#enable_at_startup=1
-" let g:neocomplete#enable_smart_case=1
-" let g:neocomplete#lock_buffer_name_pattern='\*ku\*'
-" let g:neocomplete#sources#syntax#min_keyword_length=3
+" let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
 " if !exists('g:neocomplete#keyword_patterns')
-"   let g:neocomplete#keyword_patterns={}
+"   let g:neocomplete#keyword_patterns = {}
 " endif
-" let g:neocomplete#keyword_patterns['default']='\h\w*'
+" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 " if !exists('g:neocomplete#sources#omni#input_patterns')
-"   let g:neocomplete#sources#omni#input_patterns={}
+"   let g:neocomplete#sources#omni#input_patterns = {}
 " endif
-" let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\h\w*\|\h\w*::'
+" let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
 " emmet
-let g:user_emmet_leader_key=','
+let g:user_emmet_leader_key = ','
 
 " vue
 let g:tcommentGuessFileType_vue = 'pug'
@@ -314,8 +314,8 @@ let g:user_emmet_settings = { 'vue': { 'extends': 'css' } }
 " =================
 
 " leader key
-let mapleader=','
-let g:mapleader=','
+let mapleader = ','
+let g:mapleader = ','
 
 " do not use the error keys
 " map <BS> <NOP>
