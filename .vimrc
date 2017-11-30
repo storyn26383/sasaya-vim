@@ -378,10 +378,10 @@ nmap g] <C-]>
 nmap g[ <C-T>
 
 " identation
-nmap <TAB> v>
-nmap <S-TAB> v<
-vmap <TAB> >gv
-vmap <S-TAB> <gv
+nmap g. v>
+nmap g, v<
+vmap g. >gv
+vmap g, <gv
 
 " move lines up and down using ctrl+[jk]
 nmap <C-J> mz:m+<CR>`z
