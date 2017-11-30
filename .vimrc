@@ -44,6 +44,7 @@ Plug 'storyn26383/vim-vue'
 
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " Plug 'mileszs/ack.vim'
 
 " Plug 'm2mdas/phpcomplete-extended'
@@ -199,6 +200,8 @@ command! Todo :e ~/Documents/todo.md
 
 " fzf
 command! -bang -nargs=* BTags call fzf#vim#buffer_tags('', {'options': '--no-reverse'})
+command! -bang -nargs=* Commits call fzf#vim#commits({'options': '--no-reverse'})
+command! -bang -nargs=* BCommits call fzf#vim#buffer_commits({'options': '--no-reverse'})
 let g:fzf_colors={
   \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
