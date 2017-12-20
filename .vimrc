@@ -153,9 +153,7 @@ set wildignore+=tmp/**
 " theme
 filetype plugin indent on
 syntax on
-let base16colorspace=256
-colorscheme base16-tomorrow-night
-" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+colorscheme tomorrow-night
 
 " cursorline switched while focus is switched to another split window
 autocmd WinEnter * setlocal cursorline
@@ -224,7 +222,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '%s: '
-let g:airline_theme = 'base16'
+let g:airline_theme = 'tomorrow'
 
 " NERDTree
 let NERDTreeQuitOnOpen = 1
@@ -450,3 +448,13 @@ autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
 " neocomplete
 " inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : '\<CR>'
 " inoremap <expr><TAB> pumvisible() ? '\<C-n>' : '\<TAB>'
+
+" =================
+"  base16 theme
+" =================
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace = 256
+  let g:airline_theme = 'base16'
+
+  source ~/.vimrc_background
+endif
