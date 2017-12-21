@@ -185,9 +185,7 @@ autocmd FileType php setlocal sw=4 sts=4 ts=4
 " autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
 
 " auto complete
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 
 " todo file
 command! Todo :e ~/Documents/todo.md
