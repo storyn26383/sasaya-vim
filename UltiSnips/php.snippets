@@ -1,3 +1,14 @@
+global !p
+def ucfirst(string):
+	return string[0].upper() + string[1:]
+
+def get_class_name(filename):
+	return ucfirst(filename.split(".")[0])
+
+def get_namespace(path):
+	return "\\".join(map(lambda d: ucfirst(d), path.split("/")[:-1]))
+endglobal
+
 snippet php
 <?php
 
@@ -110,36 +121,36 @@ ${1/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:protected $$2;\\n    )/g}${1/^[^$]*
 endsnippet
 
 snippet class
-namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-class ${2:`!v expand('%:t:r')`}
+class ${2:`!p snip.rv = get_class_name(fn)`}
 {
 	${0:${VISUAL:\/\////}}
 }
 endsnippet
 
 snippet aclass
-namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-abstract class ${2:`!v expand('%:t:r')`}
+abstract class ${2:`!p snip.rv = get_class_name(fn)`}
 {
 	${0:${VISUAL:\/\////}}
 }
 endsnippet
 
 snippet interface
-namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-interface ${2:`!v expand('%:t:r')`}
+interface ${2:`!p snip.rv = get_class_name(fn)`}
 {
 	${0:${VISUAL:\/\////}}
 }
 endsnippet
 
 snippet trait
-namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-trait ${2:`!v expand('%:t:r')`}
+trait ${2:`!p snip.rv = get_class_name(fn)`}
 {
 	${0:${VISUAL:\/\////}}
 }
@@ -164,12 +175,12 @@ in_array(${1:$needle}, ${2:$haystack})
 endsnippet
 
 snippet phpunit
-namespace ${1:`!v substitute(substitute(expand('%:h'), '^.', '\u&', ''), '\/', '\\', 'g')`};
+namespace ${1:`!p snip.rv = get_namespace(path)`};
 
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
-class ${2:`!v expand('%:t:r')`} extends TestCase
+class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 {
 	public function tearDown()
 	{
@@ -178,7 +189,7 @@ class ${2:`!v expand('%:t:r')`} extends TestCase
 		parent::tearDown();
 	}
 
-	public function test${2:TestName}()
+	public function test${3:TestName}()
 	{
 		${0:${VISUAL:\/\////}}
 	}
@@ -217,33 +228,101 @@ $this->assertNotNull(${1:$actual});
 endsnippet
 
 snippet asi
-	$this->assertInstanceOf(${1:Expected}::class, ${2:$actual});
+$this->assertInstanceOf(${1:Expected}::class, ${2:$actual});
 endsnippet
 
-snippet ast
-	$this->assertInternalType(${1:'string'}, ${2:actual});
+snippet asit
+$this->assertInternalType(${1:'string'}, ${2:actual});
 endsnippet
 
 snippet asc
-	$this->assertCount(${1:$expected}, ${2:$haystack});
+$this->assertCount(${1:$expected}, ${2:$haystack});
 endsnippet
 
 snippet asnc
-	$this->assertNotCount(${1:$expected}, ${2:$haystack});
+$this->assertNotCount(${1:$expected}, ${2:$haystack});
 endsnippet
 
 snippet asco
-	$this->assertContains(${1:$needle}, ${2:$haystack});
+$this->assertContains(${1:$needle}, ${2:$haystack});
 endsnippet
 
 snippet asnco
-	$this->assertNotContains(${1:$needle}, ${2:$haystack});
+$this->assertNotContains(${1:$needle}, ${2:$haystack});
 endsnippet
 
 snippet ashk
-	$this->assertArrayHasKey(${1:$key}, ${2:$haystack});
+$this->assertArrayHasKey(${1:$key}, ${2:$haystack});
 endsnippet
 
 snippet asnhk
-	this->assertArrayNotHasKey(${1:$key}, ${2:$haystack});
+$this->assertArrayNotHasKey(${1:$key}, ${2:$haystack});
+endsnippet
+
+snippet fillable
+protected $fillable = ['${1:name}'${0:${VISUAL}}];
+endsnippet
+
+snippet unittest
+namespace ${1:`!p snip.rv = get_namespace(path)`};
+
+use Mockery as m;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
+{
+	use RefreshDatabase;
+
+	public function test${3:TestName}()
+	{
+		${0:${VISUAL:\/\////}}
+	}
+}
+endsnippet
+
+snippet cascade
+$table->foreign('${1:user}_id')->references('id')->on('${2:$1s}')->onDelete('cascade');
+endsnippet
+
+snippet factory
+$${1:user} = factory(${2:`!p snip.rv = ucfirst(t[1])`}::class)->create();
+endsnippet
+
+snippet get
+$${1:response} = $this->get('/api/v1/${2:users}');
+endsnippet
+
+snippet post
+$${1:response} = $this->post('/api/v1/${2:users}', $data = [
+	${3:'name' => 'foo',}
+]);
+endsnippet
+
+snippet ass
+$response->assertStatus(${1:200});
+endsnippet
+
+snippet asj
+$response->assertJson(${1:['success' => true]});
+endsnippet
+
+snippet asej
+$response->assertExactJson(${1:['success' => true]});
+endsnippet
+
+snippet asjs
+$response->assertJsonStructure(${1:['id']});
+endsnippet
+
+snippet asdh
+$this->assertDatabaseHas('${1:users}', [
+	${2:'id' => $response->json()['id']},
+]);
+endsnippet
+
+snippet asdm
+$this->assertDatabaseHas('${1:users}', [
+	${2:'id' => $response->json()['id']},
+]);
 endsnippet
