@@ -120,6 +120,10 @@ ${1/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:protected $$2;\\n    )/g}${1/^[^$]*
 }
 endsnippet
 
+snippet namespace
+namespace ${1:`!p snip.rv = get_namespace(path)`};
+endsnippet
+
 snippet class
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
