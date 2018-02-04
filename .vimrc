@@ -71,7 +71,7 @@ set autoread                          " auto read when file is changed from outs
 set wrap
 set linebreak
 set nolist
-set hidden
+set hidden                            " switch buffers without saving
 set cursorline
 set showmatch
 set foldenable
