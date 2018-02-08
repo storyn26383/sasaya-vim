@@ -12,7 +12,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'storyn26383/vim-autoclose'
@@ -27,7 +26,6 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 
 Plug 'digitaltoad/vim-pug'
-" Plug 'tpope/vim-haml'
 " Plug 'jwalton512/vim-blade'
 
 Plug 'pangloss/vim-javascript'
@@ -45,16 +43,6 @@ Plug 'storyn26383/vim-vue'
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-" Plug 'mileszs/ack.vim'
-
-" Plug 'm2mdas/phpcomplete-extended'
-" Plug 'm2mdas/phpcomplete-extended-laravel'
-" Plug 'Shougo/vimproc.vim'
-" Plug 'Shougo/unite.vim'
-" Plug 'Shougo/neocomplete.vim'
-" Plug 'Shougo/neosnippet.vim'
-" Plug 'Shougo/neosnippet-snippets'
-" Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
@@ -66,46 +54,77 @@ set nocompatible                      " not compatible with the old-fashion vi m
 set backspace=2                       " allow backspacing over everything in insert nc >kkmode
 set history=1000                      " keep 1000 lines of command line history
 set undolevels=100
-set ruler                             " show the cursor position all the time
 set autoread                          " auto read when file is changed from outside
+set hidden                            " switch buffers without saving
+set splitright                        " always open vertical split window in the right side
+set splitbelow                        " always open horizontal split window below
+set nostartofline
+set switchbuf=useopen
+set scrolloff=4                       " start scrolling when n lines away from margins
+" set clipboard+=unnamed
+
+set ttyfast                           " send more chars while redrawing
+set lazyredraw                        " speedup vim
+set timeoutlen=1000
+set ttimeoutlen=0
+
+set nobomb                            " no BOM (Byte Order Mark)
+set key=                              " disable encryption
+set viminfo=                          " disable .viminfo file
+set nobackup                          " no *~ backup files
+set noswapfile
+set nowritebackup
+
+" visual
+set shortmess=Ia                      " remove splash wording
+set ruler                             " show the cursor position all the time
 set wrap
 set linebreak
 set nolist
-set hidden                            " switch buffers without saving
 set cursorline
 set showmatch
-set foldenable
 set number
 set numberwidth=4
 " set relativenumber
 set title
 set showcmd
 set noshowmode
-set nobomb                            " no BOM(Byte Order Mark)
-set nostartofline
-set laststatus=2
-set clipboard+=unnamed
-set splitright                        " always open vertical split window in the right side
-set splitbelow                        " always open horizontal split window below
-set scrolloff=4                       " start scrolling when n lines away from margins
-set switchbuf=useopen
-set showtabline=2                     " always show tab
-set wildmode=longest,list             " use emacs-style tab completion when selecting files, etc
-set wildmenu                          " make tab completion for files/buffers act like bash
-set key=                              " disable encryption
+set showtabline=2                     " always show tab line (the very top line)
+set laststatus=2                      " always show status line (the very bottom line)
 set synmaxcol=256
-set viminfo=                          " disable .viminfo file
-set completeopt=menuone
-set ttyfast                           " send more chars while redrawing
-set lazyredraw                        " speedup vim
-set timeoutlen=1000
-set ttimeoutlen=0
 
+" auto completion
+set wildmenu                          " make tab completion for files/buffers act like bash
+set wildmode=longest,list             " use emacs-style tab completion when selecting files, etc
+set completeopt=menuone
+
+" folding
+set foldenable
 set foldmethod=indent
 set foldlevel=100
 
+" search
 set hlsearch                          " search highlighting
 set incsearch                         " incremental search
+set ignorecase                        " ignore case when searching
+set smartcase
+
+" indent
+set autoindent
+set copyindent                        " copy the previous indentation on autoindenting
+set smarttab                          " insert tabs on the start of a line according to
+set expandtab                         " replace <TAB> with spaces
+set softtabstop=2                     " tab indent size
+set shiftwidth=2                      " auto indent size
+set tabstop=2                         " tab character size
+
+" disable sound on errors
+set visualbell
+set noerrorbells
+set t_vb=
+set tm=500
+
+" gui
 set t_Co=256
 set guifont=Source\ Code\ Pro:h15     " only available for the GUI version
 set linespace=3                       " only available for the GUI version
@@ -113,25 +132,6 @@ set guioptions-=l                     " remove gui scrollbar
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
-
-set nobackup                          " no *~ backup files
-set noswapfile
-set nowritebackup
-set copyindent                        " copy the previous indentation on autoindenting
-set ignorecase                        " ignore case when searching
-set smartcase
-set smarttab                          " insert tabs on the start of a line according to
-set expandtab                         " replace <TAB> with spaces
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
-set shortmess=Ia                      " remove splash wording
-
-" disable sound on errors
-set visualbell
-set noerrorbells
-set t_vb=
-set tm=500
 
 " file encoding
 set encoding=utf-8
@@ -187,9 +187,6 @@ autocmd FileType php setlocal sw=4 sts=4 ts=4
 " auto complete
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-" todo file
-command! Todo :e ~/Documents/todo.md
-
 " =================
 "  plugin settings
 " =================
@@ -236,14 +233,6 @@ let g:NERDTreeWinSize = 30
 let g:nerdtree_tabs_focus_on_files = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
-" indentLine
-" let g:indentLine_enabled = 1
-" let g:indentLine_faster = 1
-" let g:indentLine_char = '┆'
-" let g:indentLine_first_char = '┆'
-" let g:indentLine_color_term = 239
-" let g:indentLine_showFirstIndentLevel = 1
-
 " php cs fixer
 let g:php_cs_fixer_level = 'psr2'
 let g:php_cs_fixer_enable_default_mapping = 0
@@ -252,7 +241,6 @@ let g:php_cs_fixer_enable_default_mapping = 0
 " set statusline+ = %#warningmsg#
 " set statusline+ = %{SyntasticStatuslineFlag()}
 " set statusline+ = %*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
