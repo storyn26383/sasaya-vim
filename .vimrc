@@ -259,9 +259,7 @@ let g:UltiSnipsJumpForwardTrigger = '<TAB>'
 let g:UltiSnipsJumpBackwardTrigger = '<S-TAB>'
 
 " tcomment
-if exists('*tcomment#DefineType')
-  call tcomment#DefineType('pug', '//- %s')
-endif
+silent! call tcomment#DefineType('pug', '//- %s')
 
 " php namespace
 let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
