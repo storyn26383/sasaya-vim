@@ -15,6 +15,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'storyn26383/vim-autoclose'
+Plug 'tpope/vim-endwise'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/vim-easy-align'
 Plug 'ervandew/supertab'
@@ -39,6 +40,9 @@ Plug 'wavded/vim-stylus'
 Plug 'mattn/emmet-vim'
 
 Plug 'storyn26383/vim-vue'
+
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
