@@ -16,7 +16,7 @@ Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'storyn26383/vim-autoclose'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/vim-easy-align'
+" Plug 'junegunn/vim-easy-align'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 
@@ -29,6 +29,7 @@ Plug 'digitaltoad/vim-pug'
 " Plug 'jwalton512/vim-blade'
 
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 " Plug 'kchmck/vim-coffee-script'
 
 Plug 'hail2u/vim-css3-syntax'
@@ -94,7 +95,7 @@ set showcmd
 set noshowmode
 set showtabline=2                     " always show tab line (the very top line)
 set laststatus=2                      " always show status line (the very bottom line)
-set synmaxcol=256
+set synmaxcol=512
 
 " auto completion
 set wildmenu                          " make tab completion for files/buffers act like bash
@@ -251,6 +252,9 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = '--standard=psr2'
+
+" gitgutter
+let g:gitgutter_async = 0
 
 " supertab
 let g:SuperTabCrMapping = 1
