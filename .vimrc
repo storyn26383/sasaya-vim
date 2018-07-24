@@ -14,11 +14,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'storyn26383/vim-autoclose'
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'junegunn/vim-easy-align'
 Plug 'ervandew/supertab'
+Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
 
 Plug 'StanAngeloff/php.vim'
@@ -262,11 +263,10 @@ let g:SuperTabCrMapping = 1
 " let g:SuperTabContextDefaultCompletionType = '<C-X><C-O>'
 
 " ultisnips
-let g:UltiSnipsJumpForwardTrigger = '<TAB>'
-let g:UltiSnipsJumpBackwardTrigger = '<S-TAB>'
-
-" tcomment
-silent! call tcomment#DefineType('pug', '//- %s')
+let g:UltiSnipsExpandTrigger = '<TAB>'
+let g:UltiSnipsListSnippets = '<Leader><TAB>'
+let g:UltiSnipsJumpForwardTrigger = '<C-J>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
 " php namespace
 let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
@@ -291,15 +291,20 @@ let g:php_namespace_sort_after_insert = 1
 
 " emmet
 let g:user_emmet_leader_key = ','
-
-" vue
-let g:tcommentGuessFileType_vue = 'pug'
 let g:user_emmet_settings = { 'vue': { 'extends': 'css' } }
 
 " ack.vim
 " if executable('ag')
 "   let g:ackprg = 'ag --ignore "*.lock" --vimgrep'
 " endif
+
+" commentary
+autocmd FileType php setlocal commentstring=//\ %s
+autocmd FileType pug setlocal commentstring=//-\ %s
+autocmd FileType vue setlocal commentstring=//\ %s
+
+" repeat
+silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
 " =================
 "  key remap
@@ -404,13 +409,16 @@ imap <C-X><C-L> <Plug>(fzf-complete-line)
 " NERDTree
 nnoremap <silent> <Leader>kb :NERDTreeToggle<CR>
 
-" tcomment
+" commentary
 nmap <Leader>/ gcc
 vmap <Leader>/ gc
 
 " easy align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" ultisnips
+" autocmd InsertLeave * call UltiSnips#LeavingBuffer()
 
 " php namespace
 function! IPhpInsertUse()
@@ -431,8 +439,8 @@ function! NPhpExpandClass()
   call PhpExpandClass()
 endfunction
 
-autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php inoremap <Leader>f <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php inoremap <Leader>e <ESC>:call IPhpExpandClass()<CR>
+autocmd FileType php inoremap <Leader>f <ESC>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>e :call NPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>f :call NPhpInsertUse()<CR>
 
