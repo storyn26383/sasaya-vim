@@ -37,7 +37,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'wavded/vim-stylus'
 
-" Plug 'ap/vim-css-color'
+Plug 'lilydjwg/colorizer'
 Plug 'mattn/emmet-vim'
 
 Plug 'storyn26383/vim-vue'
