@@ -239,6 +239,9 @@ let g:NERDTreeWinSize = 30
 let g:nerdtree_tabs_focus_on_files = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
+" DevIcons
+let g:webdevicons_enable_nerdtree = 0
+
 " php cs fixer
 let g:php_cs_fixer_level = 'psr2'
 let g:php_cs_fixer_enable_default_mapping = 0
