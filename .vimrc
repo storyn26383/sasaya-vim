@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mhinz/vim-startify'
 
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -76,6 +75,7 @@ set ttimeoutlen=0
 
 set nobomb                            " no BOM (Byte Order Mark)
 set key=                              " disable encryption
+set viminfo=                          " disable .viminfo file
 set nobackup                          " no *~ backup files
 set noswapfile
 set nowritebackup
