@@ -268,7 +268,7 @@ let g:SuperTabCrMapping = 1
 
 " ultisnips
 let g:UltiSnipsExpandTrigger = '<TAB>'
-let g:UltiSnipsListSnippets = '<Leader><TAB>'
+" let g:UltiSnipsListSnippets = '<Leader><TAB>'
 let g:UltiSnipsJumpForwardTrigger = '<C-J>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
