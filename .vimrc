@@ -16,7 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'storyn26383/vim-autoclose'
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 " Plug 'junegunn/vim-easy-align'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
@@ -87,7 +87,8 @@ set ruler                             " show the cursor position all the time
 set wrap
 set linebreak
 set nolist
-set cursorline
+set nocursorline
+set nocursorcolumn
 set showmatch
 set number
 set numberwidth=4
@@ -162,8 +163,8 @@ syntax on
 colorscheme tomorrow-night
 
 " cursorline switched while focus is switched to another split window
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+" autocmd WinEnter * setlocal cursorline
+" autocmd WinLeave * setlocal nocursorline
 
 " remove tailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -187,7 +188,6 @@ autocmd BufWritePost *.php call UpdateTags()
 
 " filetype
 autocmd FileType php setlocal sw=4 sts=4 ts=4
-" autocmd BufNewFile,BufRead *.vue setlocal ft=javascript
 " autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
 
 " auto complete
@@ -234,6 +234,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 0
+let NERDTreeHighlightCursorline = 0
 let NERDTreeIgnore = ['\.git$', '\.DS_Store$']
 let g:NERDTreeWinSize = 30
 let g:nerdtree_tabs_focus_on_files = 1
@@ -305,7 +306,6 @@ let g:user_emmet_settings = { 'vue': { 'extends': 'css' } }
 " commentary
 autocmd FileType php setlocal commentstring=//\ %s
 autocmd FileType pug setlocal commentstring=//-\ %s
-autocmd FileType vue setlocal commentstring=//\ %s
 
 " repeat
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
