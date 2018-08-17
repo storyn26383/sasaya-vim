@@ -39,7 +39,7 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'wavded/vim-stylus'
 
 Plug 'lilydjwg/colorizer'
-Plug 'mattn/emmet-vim'
+Plug 'storyn26383/emmet-vim'
 
 Plug 'storyn26383/vim-vue'
 
@@ -296,7 +296,6 @@ let g:php_namespace_sort_after_insert = 1
 
 " emmet
 let g:user_emmet_leader_key = ','
-let g:user_emmet_settings = { 'vue': { 'extends': 'css' } }
 
 " ack.vim
 " if executable('ag')
