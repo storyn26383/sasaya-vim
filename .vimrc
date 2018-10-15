@@ -16,6 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'storyn26383/vim-autoclose'
+" Plug 'jiangmiao/auto-pairs'
 " Plug 'terryma/vim-multiple-cursors'
 " Plug 'junegunn/vim-easy-align'
 Plug 'ervandew/supertab'
@@ -36,7 +37,7 @@ Plug 'leafgarland/typescript-vim'
 
 Plug 'hail2u/vim-css3-syntax'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'wavded/vim-stylus'
+Plug 'iloginow/vim-stylus'
 
 Plug 'lilydjwg/colorizer'
 Plug 'storyn26383/emmet-vim'
@@ -260,7 +261,7 @@ let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = '--standard=psr2'
 
 " gitgutter
-let g:gitgutter_async = 0
+" let g:gitgutter_async = 0
 
 " supertab
 let g:SuperTabCrMapping = 1
@@ -303,8 +304,10 @@ let g:user_emmet_leader_key = ','
 " endif
 
 " commentary
+autocmd FileType js setlocal commentstring=//\ %s
 autocmd FileType php setlocal commentstring=//\ %s
 autocmd FileType pug setlocal commentstring=//-\ %s
+autocmd FileType scss setlocal commentstring=//\ %s
 
 " repeat
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
