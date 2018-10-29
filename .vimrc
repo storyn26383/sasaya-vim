@@ -185,11 +185,11 @@ function! UpdateTags()
   endif
 endfunction
 
+autocmd BufWritePost *.rb call UpdateTags()
 autocmd BufWritePost *.php call UpdateTags()
 
 " filetype
 autocmd FileType php setlocal sw=4 sts=4 ts=4
-" autocmd BufRead,BufNewFile,BufReadPre *.jade let g:indentLine_enabled=0
 
 " auto complete
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
