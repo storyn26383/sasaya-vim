@@ -380,6 +380,11 @@ nmap <C-L> :bnext<CR>
 " cancel searched highlight
 nmap <Leader><Space> :nohlsearch<CR>
 
+" fast copy & paste
+nmap <C-Y> "zY
+vmap <C-Y> "zy
+vmap <C-P> "zp
+
 " fzf
 nmap <C-P> :Files<CR>
 nmap <Leader>t :Tags<CR>
