@@ -164,6 +164,10 @@ snippet this
 $this->${0:${VISUAL}}
 endsnippet
 
+snippet this.
+$this->${0:${VISUAL}}
+endsnippet
+
 snippet .
 ->${0:${VISUAL}}
 endsnippet
@@ -186,6 +190,13 @@ use PHPUnit\Framework\TestCase;
 
 class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 {
+	public function setUp()
+	{
+		parent::setUp();
+
+		//
+	}
+
 	public function tearDown()
 	{
 		m::close();
@@ -197,6 +208,15 @@ class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 	{
 		${0:${VISUAL:\/\////}}
 	}
+}
+endsnippet
+
+snippet setup
+public function setUp()
+{
+	parent::setUp();
+
+	${0:${VISUAL:\/\////}}
 }
 endsnippet
 
@@ -277,6 +297,13 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 {
 	use RefreshDatabase;
+
+	public function setUp()
+	{
+		parent::setUp();
+
+		//
+	}
 
 	public function test${3:TestName}()
 	{
