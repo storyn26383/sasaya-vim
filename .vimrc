@@ -26,7 +26,8 @@ Plug 'SirVer/ultisnips'
 Plug 'StanAngeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'stephpy/vim-php-cs-fixer'
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 
 Plug 'digitaltoad/vim-pug'
 " Plug 'jwalton512/vim-blade'
@@ -170,7 +171,7 @@ colorscheme tomorrow-night
 " remove tailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 
-" auto update tags
+" ctags
 function! UpdateTags()
   let tags = 'tags'
 
@@ -187,11 +188,13 @@ endfunction
 
 autocmd BufWritePost *.rb call UpdateTags()
 autocmd BufWritePost *.php call UpdateTags()
+command! Ctags call system('ctags --recurse --kinds-php=citf &')
 
 " filetype
 autocmd FileType php setlocal sw=4 sts=4 ts=4
 
-" auto complete
+" omnifunc
+autocmd FileType php setlocal omnifunc=phpactor#Complete
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 " =================
@@ -275,12 +278,19 @@ let g:UltiSnipsJumpForwardTrigger = '<C-J>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
 " php namespace
-let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
-let g:php_namespace_sort_after_insert = 1
+" let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
+" let g:php_namespace_sort_after_insert = 1
 
+" phpactor
+let g:phpactorBranch = 'develop'
+let g:phpactorOmniError = v:true
+let g:phpactorOmniAutoClassImport = v:false
 
 " emmet
 let g:user_emmet_leader_key = ','
+let g:user_emmet_install_global = 0
+autocmd FileType html,vue EmmetInstall
+autocmd FileType css,scss,stylus EmmetInstall
 
 " commentary
 autocmd FileType js setlocal commentstring=//\ %s
@@ -333,7 +343,7 @@ nmap <Leader>s :w<CR>
 nmap <Leader>B :exec '!tig blame % +'.line('.')<CR>
 
 " ctags
-nmap <Leader>c :!ctags --recurse --kinds-php=citf &<CR>
+" nmap <Leader>c :!ctags --recurse --kinds-php=citf &<CR>
 
 " close buffer
 nmap <Leader>w :bd<CR>
@@ -351,7 +361,7 @@ nmap <Leader>k9 :set foldlevel=8<CR>
 nmap <Leader>k0 :set foldlevel=100<CR>
 
 " fast asign variable
-nmap <Leader>v yiw/}<CR>O$this-><ESC>pa = $<ESC>pa;<ESC>?__construct<CR>Oprotected $<ESC>pa;<CR><ESC>/__construct<CR>/<C-R>"<CR>:nohl<CR>
+" nmap <Leader>v yiw/}<CR>O$this-><ESC>pa = $<ESC>pa;<ESC>?__construct<CR>Oprotected $<ESC>pa;<CR><ESC>/__construct<CR>/<C-R>"<CR>:nohl<CR>
 
 " omni complete
 imap <Leader><TAB> <C-X><C-O>
@@ -407,9 +417,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " php namespace
-function! IPhpInsertUse()
-  call PhpInsertUse()
-  call feedkeys('a', 'n')
+function! NPhpExpandClass()
+  call IPhpExpandClass()
 endfunction
 
 function! IPhpExpandClass()
@@ -417,22 +426,47 @@ function! IPhpExpandClass()
   call feedkeys('a', 'n')
 endfunction
 
-function! NPhpInsertUse()
-  call PhpInsertUse()
-endfunction
-
-function! NPhpExpandClass()
-  call PhpExpandClass()
-endfunction
-
 autocmd FileType php inoremap <Leader>e <ESC>:call IPhpExpandClass()<CR>
-autocmd FileType php inoremap <Leader>f <ESC>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>e :call NPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>f :call NPhpInsertUse()<CR>
 
 " php cs fixer
 autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
 
+" phpactor
+function! PhpactorSotrUse()
+  silent execute "normal! mzgg/namespace\<CR>/use \<CR>V/class\\|trait\\|interface\<CR>?use \<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
+endfunction
+
+function! NPhpactorInsertUse()
+  call phpactor#UseAdd()
+  call PhpactorSotrUse()
+endfunction
+
+function! IPhpactorInsertUse()
+  call NPhpactorInsertUse()
+  call feedkeys('a', 'n')
+endfunction
+
+function! CPhpactorInsertUse()
+  call phpactor#_completeImportClass(v:completed_item)
+  call PhpactorSotrUse()
+endfunction
+
+autocmd CompleteDone *.php call CPhpactorInsertUse()
+autocmd FileType php command! SortUse call PhpactorSotrUse()
+autocmd FileType php command! NewClass call phpactor#ClassNew()
+autocmd FileType php command! Transform call phpactor#Transform()
+autocmd FileType php command! Reference call phpactor#FindReference()
+autocmd FileType php nmap <C-]> mZ:call phpactor#GotoDefinition()<CR>
+autocmd FileType php nmap <C-T> `Z
+autocmd FileType php nmap <Leader>m :call phpactor#ContextMenu()<CR>
+autocmd FileType php nmap <Leader>a :call phpactor#Navigate()<CR>
+autocmd FileType php nmap <Leader>f :call NPhpactorInsertUse()<CR>
+autocmd FileType php imap <Leader>f <ESC>:call IPhpactorInsertUse()<CR>
+autocmd FileType php nmap <silent><Leader>v :call phpactor#ChangeVisibility()<CR>
+autocmd FileType php nmap <silent><Leader>x :call phpactor#ExtractExpression(v:false)<CR>
+autocmd FileType php vmap <silent><Leader>x :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+autocmd FileType php vmap <silent><Leader>m :<C-U>call phpactor#ExtractMethod()<CR>
 
 " =================
 "  base16 theme
