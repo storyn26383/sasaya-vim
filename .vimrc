@@ -452,13 +452,33 @@ function! CPhpactorInsertUse()
   call PhpactorSotrUse()
 endfunction
 
+function! PhpactorGotoDefinition()
+  if !exists('s:phpactor_trace_stack')
+    let s:phpactor_trace_stack = []
+  endif
+
+  call add(s:phpactor_trace_stack, [expand('%:p'), line('.'), col('.')])
+  call phpactor#GotoDefinition()
+endfunction
+
+function! PhpactorTraceBack()
+  if !exists('s:phpactor_trace_stack') || empty(s:phpactor_trace_stack)
+    return
+  endif
+
+  let l:position = remove(s:phpactor_trace_stack, -1)
+
+  silent execute 'e ' . l:position[0]
+  call cursor(l:position[1], l:position[2])
+endfunction
+
 autocmd CompleteDone *.php call CPhpactorInsertUse()
 autocmd FileType php command! SortUse call PhpactorSotrUse()
 autocmd FileType php command! NewClass call phpactor#ClassNew()
 autocmd FileType php command! Transform call phpactor#Transform()
 autocmd FileType php command! Reference call phpactor#FindReference()
-autocmd FileType php nmap <C-]> mZ:call phpactor#GotoDefinition()<CR>
-autocmd FileType php nmap <C-T> `Z
+autocmd FileType php nmap <C-]> :call PhpactorGotoDefinition()<CR>
+autocmd FileType php nmap <C-T> :call PhpactorTraceBack()<CR>
 autocmd FileType php nmap <Leader>m :call phpactor#ContextMenu()<CR>
 autocmd FileType php nmap <Leader>a :call phpactor#Navigate()<CR>
 autocmd FileType php nmap <Leader>f :call NPhpactorInsertUse()<CR>
