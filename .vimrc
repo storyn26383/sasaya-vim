@@ -278,30 +278,9 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
 let g:php_namespace_sort_after_insert = 1
 
-" php complete
-" let g:phpcomplete_index_composer_command = 'composer'
-
-" neocomplete
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_smart_case = 1
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" if !exists('g:neocomplete#keyword_patterns')
-"   let g:neocomplete#keyword_patterns = {}
-" endif
-" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" if !exists('g:neocomplete#sources#omni#input_patterns')
-"   let g:neocomplete#sources#omni#input_patterns = {}
-" endif
-" let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
 " emmet
 let g:user_emmet_leader_key = ','
-
-" ack.vim
-" if executable('ag')
-"   let g:ackprg = 'ag --ignore "*.lock" --vimgrep'
-" endif
 
 " commentary
 autocmd FileType js setlocal commentstring=//\ %s
@@ -351,7 +330,6 @@ cnoremap <ESC><C-F> <S-RIGHT>
 nmap <Leader>s :w<CR>
 
 " tig
-" nmap <Leader>g :!tig<CR>
 nmap <Leader>B :exec '!tig blame % +'.line('.')<CR>
 
 " ctags
@@ -423,9 +401,6 @@ vmap <Leader>/ gc
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" ultisnips
-" autocmd InsertLeave * call UltiSnips#LeavingBuffer()
-
 " php namespace
 function! IPhpInsertUse()
   call PhpInsertUse()
@@ -453,9 +428,6 @@ autocmd FileType php noremap <Leader>f :call NPhpInsertUse()<CR>
 " php cs fixer
 autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
 
-" neocomplete
-" inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : '\<CR>'
-" inoremap <expr><TAB> pumvisible() ? '\<C-n>' : '\<TAB>'
 
 " =================
 "  base16 theme
