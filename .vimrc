@@ -448,8 +448,17 @@ function! IPhpactorInsertUse()
 endfunction
 
 function! CPhpactorInsertUse()
+  let l:line = line('.')
+  let l:col = col('.')
+  let l:original_lines = line('$')
+
   call phpactor#_completeImportClass(v:completed_item)
   call PhpactorSotrUse()
+
+  let l:current_lines = line('$')
+  let l:offset = l:current_lines - l:original_lines
+
+  call cursor(l:line + l:offset, l:col)
 endfunction
 
 function! PhpactorGotoDefinition()
