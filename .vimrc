@@ -18,7 +18,7 @@ Plug 'tpope/vim-commentary'
 Plug 'storyn26383/vim-autoclose'
 " Plug 'jiangmiao/auto-pairs'
 " Plug 'terryma/vim-multiple-cursors'
-" Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
@@ -49,7 +49,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 
 Plug 'scrooloose/syntastic'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
@@ -69,6 +69,7 @@ set splitbelow                        " always open horizontal split window belo
 set nostartofline
 set switchbuf=useopen
 set scrolloff=4                       " start scrolling when n lines away from margins
+set tags=tags,tags.vendor
 " set clipboard+=unnamed
 
 set ttyfast                           " send more chars while redrawing
@@ -179,16 +180,16 @@ function! UpdateTags()
     let file = substitute(expand('%:p'), getcwd() . '/', '', '')
 
     " remove tags of file
-    call system('sed -ri "/\s+' . escape(file, './') . '/d" ' . tags)
+    call system('sed -ri "/\s+' . escape(file, './') . '/d"' . tags)
 
     " append tags of file
-    call system('ctags -a --kinds-php=citf "' . file . '"')
+    call system('ctags -a "' . file . '"')
   endif
 endfunction
 
 autocmd BufWritePost *.rb call UpdateTags()
 autocmd BufWritePost *.php call UpdateTags()
-command! Ctags call system('ctags --recurse --kinds-php=citf &')
+command! Ctags call system('ctags --recurse --exclude=vendor --exclude=node_modules --exclude=public --exclude="*.json" --exclude="*.min.*" && ctags --recurse -f tags.vendor vendor node_modules &')
 
 " filetype
 autocmd FileType php setlocal sw=4 sts=4 ts=4
@@ -205,7 +206,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 command! -bang -nargs=* Commits call fzf#vim#commits({'options': '--no-reverse'})
 command! -bang -nargs=* BTags call fzf#vim#buffer_tags('', {'options': '--no-reverse'})
 command! -bang -nargs=* BCommits call fzf#vim#buffer_commits({'options': '--no-reverse'})
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--hidden', {'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'})
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore=*.lock --ignore=.git --hidden', {'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'})
 let g:fzf_colors={
   \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -243,6 +244,15 @@ let NERDTreeIgnore = ['\.git$', '\.DS_Store$']
 let g:NERDTreeWinSize = 30
 let g:nerdtree_tabs_focus_on_files = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
+
+" easy align
+let g:easy_align_delimiters = {
+\ '>': {
+\     'pattern':      '->\|=>',
+\     'left_margin':  0,
+\     'right_margin': 0
+\   }
+\ }
 
 " DevIcons
 let g:webdevicons_enable_nerdtree = 0
