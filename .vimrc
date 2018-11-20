@@ -445,6 +445,7 @@ autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
 " phpactor
 function! PhpactorSotrUse()
   silent execute "normal! mzgg/^use \<CR>V/^$\<CR>?^use \<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
+  call feedkeys(":noh\<CR>", 'n')
 endfunction
 
 function! NPhpactorInsertUse()
