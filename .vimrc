@@ -356,7 +356,7 @@ nmap <Leader>B :exec '!tig blame % +'.line('.')<CR>
 " nmap <Leader>c :!ctags --recurse --kinds-php=citf &<CR>
 
 " close buffer
-nmap <Leader>w :bd<CR>
+nmap <Leader>w :bw<CR>
 
 " fold
 nmap <Leader>k1 :set foldlevel=0<CR>
