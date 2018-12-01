@@ -463,6 +463,7 @@ function! CPhpactorInsertUse()
   let l:col = col('.')
   let l:original_lines = line('$')
 
+  call feedkeys("\<ESC>", 'n')
   call phpactor#_completeImportClass(v:completed_item)
   call PhpactorSotrUse()
 
@@ -470,6 +471,7 @@ function! CPhpactorInsertUse()
   let l:offset = l:current_lines - l:original_lines
 
   call cursor(l:line + l:offset, l:col)
+  call feedkeys('a', 'n')
 endfunction
 
 function! PhpactorGotoDefinition()
