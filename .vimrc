@@ -102,6 +102,7 @@ set noshowmode
 set showtabline=2                     " always show tab line (the very top line)
 set laststatus=2                      " always show status line (the very bottom line)
 set synmaxcol=512
+set diffopt+=vertical
 
 " auto completion
 set wildmenu                          " make tab completion for files/buffers act like bash
