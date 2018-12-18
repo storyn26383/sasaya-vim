@@ -447,6 +447,7 @@ autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
 function! PhpactorSotrUse()
   silent execute "normal! mzgg/^use \<CR>V/^$\<CR>?^use \<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
   call feedkeys(":noh\<CR>", 'n')
+  call feedkeys(":echo 'Sorted!'\<CR>", 'n')
 endfunction
 
 function! NPhpactorInsertUse()
@@ -466,11 +467,16 @@ function! CPhpactorInsertUse()
 
   call feedkeys("\<ESC>", 'n')
   call phpactor#_completeImportClass(v:completed_item)
-  call PhpactorSotrUse()
 
   let l:current_lines = line('$')
+
+  if l:original_lines == l:current_lines
+    return
+  endif
+
   let l:offset = l:current_lines - l:original_lines
 
+  call PhpactorSotrUse()
   call cursor(l:line + l:offset, l:col)
   call feedkeys('a', 'n')
 endfunction
