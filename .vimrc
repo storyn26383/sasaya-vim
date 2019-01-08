@@ -40,6 +40,8 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'iloginow/vim-stylus'
 
+Plug 'dearrrfish/vim-applescript'
+
 Plug 'lilydjwg/colorizer'
 Plug 'storyn26383/emmet-vim'
 
@@ -47,6 +49,9 @@ Plug 'storyn26383/vim-vue'
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-bundler'
+
+Plug 'chr4/nginx.vim'
 
 Plug 'scrooloose/syntastic'
 " Plug 'airblade/vim-gitgutter'
