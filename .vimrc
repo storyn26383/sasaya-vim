@@ -25,7 +25,6 @@ Plug 'SirVer/ultisnips'
 
 Plug 'StanAngeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
-Plug 'stephpy/vim-php-cs-fixer'
 " Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 
@@ -54,6 +53,7 @@ Plug 'tpope/vim-rails'
 Plug 'chr4/nginx.vim'
 
 Plug 'scrooloose/syntastic'
+Plug 'stephpy/vim-php-cs-fixer'
 " Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
@@ -263,10 +263,6 @@ let g:easy_align_delimiters = {
 " DevIcons
 let g:webdevicons_enable_nerdtree = 0
 
-" php cs fixer
-let g:php_cs_fixer_level = 'psr2'
-let g:php_cs_fixer_enable_default_mapping = 0
-
 " syntastic
 " set statusline+ = %#warningmsg#
 " set statusline+ = %{SyntasticStatuslineFlag()}
@@ -278,6 +274,10 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = '--standard=psr2'
+
+" php cs fixer
+let g:php_cs_fixer_rules = "@PSR2"
+let g:php_cs_fixer_enable_default_mapping = 0
 
 " gitgutter
 " let g:gitgutter_async = 0
@@ -443,7 +443,7 @@ autocmd FileType php inoremap <Leader>e <ESC>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>e :call NPhpExpandClass()<CR>
 
 " php cs fixer
-autocmd FileType php nnoremap <leader>pf :call PhpCsFixerFixFile()<CR>
+autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 " phpactor
 function! PhpactorSotrUse()
