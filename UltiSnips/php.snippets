@@ -120,6 +120,13 @@ ${1/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:protected $$2;\\n    )/g}${1/^[^$]*
 }
 endsnippet
 
+snippet handle
+${1/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:private $$2;\\n    )/g}${1/^[^$]*(\$\w+)?.*$/(?1:\\n    )/}public function handle($1): ${2:void}
+{
+	${0:${VISUAL:\/\////}}
+}
+endsnippet
+
 snippet namespace
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 endsnippet
@@ -337,6 +344,16 @@ snippet post
 $${1:response} = $this->post('/api/v1/${2:users}', $data = [
 	${3:'name' => 'foo',}
 ]);
+endsnippet
+
+snippet put
+$${1:response} = $this->put('/api/v1/${2:users}', $data = [
+	${3:'name' => 'foo',}
+]);
+endsnippet
+
+snippet put
+$${1:response} = $this->delete('/api/v1/${2:users}');
 endsnippet
 
 snippet ass
