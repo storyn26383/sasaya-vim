@@ -9,12 +9,6 @@ def get_namespace(path):
 	return "\\".join(map(lambda d: ucfirst(d), path.split("/")[:-1]))
 endglobal
 
-snippet php
-<?php
-
-
-endsnippet
-
 snippet if
 if (${1:/* condition */}) {
 	${0:${VISUAL:\/\////}}
@@ -132,6 +126,8 @@ namespace ${1:`!p snip.rv = get_namespace(path)`};
 endsnippet
 
 snippet class
+<?php
+
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
 class ${2:`!p snip.rv = get_class_name(fn)`}
@@ -141,6 +137,8 @@ class ${2:`!p snip.rv = get_class_name(fn)`}
 endsnippet
 
 snippet aclass
+<?php
+
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
 abstract class ${2:`!p snip.rv = get_class_name(fn)`}
@@ -150,6 +148,8 @@ abstract class ${2:`!p snip.rv = get_class_name(fn)`}
 endsnippet
 
 snippet interface
+<?php
+
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
 interface ${2:`!p snip.rv = get_class_name(fn)`}
@@ -159,11 +159,29 @@ interface ${2:`!p snip.rv = get_class_name(fn)`}
 endsnippet
 
 snippet trait
+<?php
+
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
 trait ${2:`!p snip.rv = get_class_name(fn)`}
 {
 	${0:${VISUAL:\/\////}}
+}
+endsnippet
+
+snippet service
+<?php
+
+namespace ${1:`!p snip.rv = get_namespace(path)`};
+
+use App\Services\Service;
+
+class ${2:`!p snip.rv = get_class_name(fn)`} extends Service
+{
+	${3/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:private $$2;\\n    )/g}${3/^[^$]*(\$\w+)?.*$/(?1:\\n    )/}public function handle($3): ${4:void}
+	{
+		${0:${VISUAL:\/\////}}
+	}
 }
 endsnippet
 
@@ -190,6 +208,8 @@ in_array(${1:$needle}, ${2:$haystack})
 endsnippet
 
 snippet phpunit
+<?php
+
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
 use Mockery as m;
@@ -197,14 +217,14 @@ use PHPUnit\Framework\TestCase;
 
 class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 {
-	public function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
 		//
 	}
 
-	public function tearDown()
+	protected function tearDown(): void
 	{
 		m::close();
 
@@ -214,7 +234,7 @@ class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 	/**
 	 * @test
 	 */
-	public function test${3:TestName}()
+	public function ${3:testName}()
 	{
 		${0:${VISUAL:\/\////}}
 	}
@@ -222,7 +242,7 @@ class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 endsnippet
 
 snippet setup
-public function setUp()
+protected function setUp(): void
 {
 	parent::setUp();
 
@@ -234,10 +254,14 @@ snippet test
 /**
  * @test
  */
-public function test${1:TestName}()
+public function ${1:testName}()
 {
 	${0:${VISUAL:\/\////}}
 }
+endsnippet
+
+snippet m
+use Mockery as m;
 endsnippet
 
 snippet ase
@@ -296,11 +320,17 @@ snippet asnhk
 $this->assertArrayNotHasKey(${1:$key}, ${2:$haystack});
 endsnippet
 
+snippet em
+$this->expectException(${1:$Exception}::class);
+endsnippet
+
 snippet fillable
 protected $fillable = ['${1:name}'${0:${VISUAL}}];
 endsnippet
 
 snippet unittest
+<?php
+
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
 use Mockery as m;
@@ -311,7 +341,7 @@ class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 {
 	use RefreshDatabase;
 
-	public function setUp()
+	protected function setUp(): void
 	{
 		parent::setUp();
 
@@ -321,7 +351,7 @@ class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 	/**
 	 * @test
 	 */
-	public function test${3:TestName}()
+	public function ${3:testName}()
 	{
 		${0:${VISUAL:\/\////}}
 	}
