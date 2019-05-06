@@ -309,10 +309,7 @@ autocmd FileType html,vue EmmetInstall
 autocmd FileType css,scss,stylus EmmetInstall
 
 " commentary
-autocmd FileType php setlocal commentstring=//\ %s
 autocmd FileType pug setlocal commentstring=//-\ %s
-autocmd FileType scss setlocal commentstring=//\ %s
-autocmd FileType javascript setlocal commentstring=//\ %s
 
 " repeat
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
