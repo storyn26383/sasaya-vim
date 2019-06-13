@@ -49,6 +49,8 @@ Plug 'storyn26383/vim-vue'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 " Plug 'tpope/vim-bundler'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'thoughtbot/vim-rspec'
 
 Plug 'chr4/nginx.vim'
 
@@ -83,7 +85,6 @@ set timeoutlen=1000
 set ttimeoutlen=0
 
 set nobomb                            " no BOM (Byte Order Mark)
-set key=                              " disable encryption
 set viminfo=                          " disable .viminfo file
 set nobackup                          " no *~ backup files
 set noswapfile
@@ -236,6 +237,7 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_nr_format = '%s: '
 let g:airline_theme = 'tomorrow'
+let g:airline_symbols = { 'dirty': '' }
 
 " NERDTree
 let NERDTreeQuitOnOpen = 1
@@ -371,7 +373,8 @@ nmap <Leader>k9 :set foldlevel=8<CR>
 nmap <Leader>k0 :set foldlevel=100<CR>
 
 " fast asign variable
-" nmap <Leader>v yiw/}<CR>O$this-><ESC>pa = $<ESC>pa;<ESC>?__construct<CR>Oprotected $<ESC>pa;<CR><ESC>/__construct<CR>/<C-R>"<CR>:nohl<CR>
+" nmap <Leader>v yiw/}<CR>O$this-><ESC>pa = $<ESC>pa;<ESC>?__construct<CR>Oprivate $<ESC>pa;<CR><ESC>/__construct<CR>/<C-R>"<CR>:nohl<CR>
+
 
 " omni complete
 imap <Leader><TAB> <C-X><C-O>
@@ -500,11 +503,12 @@ endfunction
 
 autocmd CompleteDone *.php call CPhpactorInsertUse()
 autocmd FileType php command! SortUse call PhpactorSotrUse()
-autocmd FileType php command! NewClass call phpactor#ClassNew()
+autocmd FileType php command! ClassNew call phpactor#ClassNew()
 autocmd FileType php command! Transform call phpactor#Transform()
-autocmd FileType php command! Reference call phpactor#FindReference()
+autocmd FileType php command! References call phpactor#FindReferences()
 autocmd FileType php nmap <C-]> :call PhpactorGotoDefinition()<CR>
 autocmd FileType php nmap <C-T> :call PhpactorTraceBack()<CR>
+autocmd FileType php nmap <Leader>l :call phpactor#ClassNew()<CR>
 autocmd FileType php nmap <Leader>m :call phpactor#ContextMenu()<CR>
 autocmd FileType php nmap <Leader>a :call phpactor#Navigate()<CR>
 autocmd FileType php nmap <Leader>f :call NPhpactorInsertUse()<CR>
