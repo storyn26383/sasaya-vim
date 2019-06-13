@@ -1,0 +1,15 @@
+global !p
+def camel_case(string):
+	return "".join(map(lambda d: d[0].upper() + d[1:], string.split("_")))
+
+def get_class_name(filename):
+	return "::".join(map(lambda d: camel_case(d), path.split("/")[2:-1])) + "::" + camel_case(filename.split(".")[0])
+endglobal
+
+snippet business
+class `!p snip.rv = get_class_name(fn)` < Business::Base
+	def run($1)
+		${0:${VISUAL:#}}
+	end`!p snip.rv = "\n\n  private\n\n  attr_reader " if t[1] else ""`${1/(,\s*)?(?:([a-z0-9_]+):?)/(?1:$1):$2/g}
+end
+endsnippet

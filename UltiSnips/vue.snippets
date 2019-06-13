@@ -10,10 +10,9 @@ snippet vue
 	}
 </script>
 
-<style lang="scss" scoped>
-	.$1 {
+<style lang="stylus" scoped>
+	.$1
 		//
-	}
 </style>
 endsnippet
 
@@ -33,9 +32,17 @@ snippet script
 endsnippet
 
 snippet style
-<style lang="scss" scoped>
-	.${1:component} {
+<style lang="stylus" scoped>
+	.${1:component}
 		${0:${VISUAL:\/\////}}
-	}
 </style>
+endsnippet
+
+snippet i18n
+<i18n>
+	zh-TW:
+		${0}
+	zh-HK:
+	en:
+</i18n>
 endsnippet

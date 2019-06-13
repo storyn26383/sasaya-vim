@@ -108,7 +108,14 @@ private static function ${1:methodName}($2): ${3:void}
 endsnippet
 
 snippet _c
-${1/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:protected $$2;\\n    )/g}${1/^[^$]*(\$\w+)?.*$/(?1:\\n    )/}public function __construct($1)
+public function __construct($1)
+{
+	${0:${VISUAL:\/\////}}
+}
+endsnippet
+
+snippet __c
+${1/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:private $$2;\\n    )/g}${1/^[^$]*(\$\w+)?.*$/(?1:\\n    )/}public function __construct($1)
 {
 	${1/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:(?1:\\\\n        )$this->$2 = $$2;)/g}${0:`!p snip.rv = "" if re.match(r"^[^$]*(\$\w+)?.*$", t[1]).group(1) else "//"`}
 }
@@ -174,7 +181,7 @@ snippet service
 
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-use App\Services\Service;
+use App\Modules\Service\Service;
 
 class ${2:`!p snip.rv = get_class_name(fn)`} extends Service
 {
@@ -212,32 +219,11 @@ snippet phpunit
 
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-use Mockery as m;
 use PHPUnit\Framework\TestCase;
 
 class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 {
-	protected function setUp(): void
-	{
-		parent::setUp();
-
-		//
-	}
-
-	protected function tearDown(): void
-	{
-		m::close();
-
-		parent::tearDown();
-	}
-
-	/**
-	 * @test
-	 */
-	public function ${3:testName}()
-	{
-		${0:${VISUAL:\/\////}}
-	}
+	${0:${VISUAL:\/\////}}
 }
 endsnippet
 
@@ -246,6 +232,22 @@ protected function setUp(): void
 {
 	parent::setUp();
 
+	${0:${VISUAL:\/\////}}
+}
+endsnippet
+
+snippet teardown
+protected function tearDown(): void
+{
+	m::close();
+
+	parent::tearDown();
+}
+endsnippet
+
+snippet t
+public function test${1:testName}()
+{
 	${0:${VISUAL:\/\////}}
 }
 endsnippet
@@ -333,7 +335,6 @@ snippet unittest
 
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-use Mockery as m;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -341,20 +342,7 @@ class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
 {
 	use RefreshDatabase;
 
-	protected function setUp(): void
-	{
-		parent::setUp();
-
-		//
-	}
-
-	/**
-	 * @test
-	 */
-	public function ${3:testName}()
-	{
-		${0:${VISUAL:\/\////}}
-	}
+	${0:${VISUAL:\/\////}}
 }
 endsnippet
 
