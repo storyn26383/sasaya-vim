@@ -111,8 +111,7 @@ set synmaxcol=512
 set diffopt+=vertical
 
 " auto completion
-set wildmenu                          " make tab completion for files/buffers act like bash
-set wildmode=longest,list             " use emacs-style tab completion when selecting files, etc
+set wildmode=list:full                " make tab completion for files/buffers act like bash
 set completeopt=menuone
 
 " folding
