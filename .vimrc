@@ -399,6 +399,12 @@ vmap <C-K> :m'<-2<CR>`>my`<mzgv`yo`z
 nmap <C-H> :bprevious<CR>
 nmap <C-L> :bnext<CR>
 
+" resize split window faster
+nmap <C-W>+ :resize +10<CR>
+nmap <C-W>- :resize -10<CR>
+nmap <C-W>> :vertical resize +10<CR>
+nmap <C-W>< :vertical resize -10<CR>
+
 " cancel searched highlight
 nmap <Leader><Space> :nohlsearch<CR>
 
