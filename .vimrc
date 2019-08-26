@@ -54,7 +54,7 @@ Plug 'thoughtbot/vim-rspec'
 
 Plug 'chr4/nginx.vim'
 
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'stephpy/vim-php-cs-fixer'
 " Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -275,6 +275,7 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = '--standard=psr2'
+let g:syntastic_javascript_checkers = ['eslint']
 
 " php cs fixer
 let g:php_cs_fixer_rules = "@PSR2"
