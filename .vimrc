@@ -26,7 +26,7 @@ Plug 'SirVer/ultisnips'
 Plug 'StanAngeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
 " Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
+Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install' }
 
 Plug 'digitaltoad/vim-pug'
 " Plug 'jwalton512/vim-blade'
@@ -295,14 +295,10 @@ let g:UltiSnipsExpandTrigger = '<TAB>'
 let g:UltiSnipsJumpForwardTrigger = '<C-J>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
-" php namespace
-" let g:php_namespace_sort = "'{,'}-1!awk '{print length, $0}' | sort -n | cut -d' ' -f2-"
-" let g:php_namespace_sort_after_insert = 1
-
 " phpactor
 let g:phpactorBranch = 'develop'
 let g:phpactorOmniError = v:true
-let g:phpactorOmniAutoClassImport = v:false
+let g:phpactorOmniAutoClassImport = v:true
 
 " emmet
 let g:user_emmet_leader_key = ','
@@ -435,32 +431,11 @@ vmap <Leader>/ gc
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" php namespace
-function! NPhpExpandClass()
-  call IPhpExpandClass()
-endfunction
-
-function! IPhpExpandClass()
-  call PhpExpandClass()
-  call feedkeys('a', 'n')
-endfunction
-
-autocmd FileType php inoremap <Leader>e <ESC>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>e :call NPhpExpandClass()<CR>
-
 " php cs fixer
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
-" phpactor
-function! PhpactorSotrUse()
-  silent execute "normal! mzgg/^use \<CR>V/^$\<CR>?^use \<CR>:!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-\<CR>`z"
-  " call feedkeys(":noh\<CR>", 'n')
-  " call feedkeys(":echo 'Sorted!'\<CR>", 'n')
-endfunction
-
 function! NPhpactorInsertUse()
   call phpactor#UseAdd()
-  call PhpactorSotrUse()
 endfunction
 
 function! IPhpactorInsertUse()
@@ -468,23 +443,13 @@ function! IPhpactorInsertUse()
   call feedkeys('a', 'n')
 endfunction
 
-function! CPhpactorInsertUse()
-  let l:line = line('.')
-  let l:col = col('.')
-  let l:original_lines = line('$')
+function! NPhpactorExpandClass()
+  call phpactor#ClassExpand()
+endfunction
 
-  call phpactor#_completeImportClass(v:completed_item)
-
-  let l:current_lines = line('$')
-
-  if l:original_lines == l:current_lines
-    return
-  endif
-
-  let l:offset = l:current_lines - l:original_lines
-
-  call PhpactorSotrUse()
-  call cursor(l:line + l:offset, l:col)
+function! IPhpactorExpandClass()
+  call NPhpactorExpandClass()
+  call feedkeys('a', 'n')
 endfunction
 
 function! PhpactorGotoDefinition()
@@ -507,8 +472,6 @@ function! PhpactorTraceBack()
   call cursor(l:position[1], l:position[2])
 endfunction
 
-autocmd CompleteDone *.php call CPhpactorInsertUse()
-autocmd FileType php command! SortUse call PhpactorSotrUse()
 autocmd FileType php command! ClassNew call phpactor#ClassNew()
 autocmd FileType php command! Transform call phpactor#Transform()
 autocmd FileType php command! References call phpactor#FindReferences()
@@ -519,6 +482,8 @@ autocmd FileType php nmap <Leader>m :call phpactor#ContextMenu()<CR>
 autocmd FileType php nmap <Leader>a :call phpactor#Navigate()<CR>
 autocmd FileType php nmap <Leader>f :call NPhpactorInsertUse()<CR>
 autocmd FileType php imap <Leader>f <ESC>:call IPhpactorInsertUse()<CR>
+autocmd FileType php nmap <Leader>e :call NPhpactorExpandClass()<CR>
+autocmd FileType php imap <Leader>e <ESC>:call IPhpactorExpandClass()<CR>
 autocmd FileType php nmap <silent><Leader>v :call phpactor#ChangeVisibility()<CR>
 autocmd FileType php nmap <silent><Leader>x :call phpactor#ExtractExpression(v:false)<CR>
 autocmd FileType php vmap <silent><Leader>x :<C-U>call phpactor#ExtractExpression(v:true)<CR>
