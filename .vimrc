@@ -25,11 +25,10 @@ Plug 'SirVer/ultisnips'
 
 Plug 'StanAngeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
-" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install' }
 
 Plug 'digitaltoad/vim-pug'
-" Plug 'jwalton512/vim-blade'
+Plug 'jwalton512/vim-blade'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -40,6 +39,8 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'iloginow/vim-stylus'
 
 Plug 'dearrrfish/vim-applescript'
+
+Plug 'jparise/vim-graphql'
 
 Plug 'lilydjwg/colorizer'
 Plug 'storyn26383/emmet-vim'
@@ -56,7 +57,6 @@ Plug 'chr4/nginx.vim'
 
 Plug 'vim-syntastic/syntastic'
 Plug 'stephpy/vim-php-cs-fixer'
-" Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
@@ -77,6 +77,7 @@ set nostartofline
 set switchbuf=useopen
 set scrolloff=4                       " start scrolling when n lines away from margins
 set tags=tags,tags.vendor
+set exrc                              " allows for per-project configuration files
 " set clipboard+=unnamed
 
 set ttyfast                           " send more chars while redrawing
@@ -198,6 +199,7 @@ autocmd BufWritePost *.php call UpdateTags()
 command! Ctags call system('ctags --recurse --exclude=vendor --exclude=node_modules --exclude=public --exclude="*.json" --exclude="*.min.*" && ctags --recurse -f tags.vendor vendor node_modules &')
 
 " filetype
+autocmd FileType php setlocal iskeyword-=$
 autocmd FileType php setlocal sw=4 sts=4 ts=4
 
 " omnifunc
@@ -278,11 +280,8 @@ let g:syntastic_php_phpcs_args = '--standard=psr2'
 let g:syntastic_javascript_checkers = ['eslint']
 
 " php cs fixer
-let g:php_cs_fixer_rules = "@PSR2"
+let g:php_cs_fixer_rules = '@PSR2'
 let g:php_cs_fixer_enable_default_mapping = 0
-
-" gitgutter
-" let g:gitgutter_async = 0
 
 " supertab
 let g:SuperTabCrMapping = 1
@@ -307,6 +306,7 @@ autocmd FileType html,vue EmmetInstall
 autocmd FileType css,scss,stylus EmmetInstall
 
 " commentary
+autocmd FileType php setlocal commentstring=//\ %s
 autocmd FileType pug setlocal commentstring=//-\ %s
 
 " repeat
@@ -320,18 +320,6 @@ silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 let mapleader = ','
 let g:mapleader = ','
 
-" do not use the error keys
-" map <BS> <NOP>
-" map <UP> <NOP>
-" map <DOWN> <NOP>
-" map <LEFT> <NOP>
-" map <RIGHT> <NOP>
-" imap <BS> <NOP>
-" imap <UP> <NOP>
-" imap <DOWN> <NOP>
-" imap <LEFT> <NOP>
-" imap <RIGHT> <NOP>
-
 " command mode
 cmap <C-A> <HOME>
 cmap <C-E> <END>
@@ -343,9 +331,6 @@ cnoremap <C-N> <DOWN>
 cnoremap <C-P> <UP>
 cnoremap <ESC><C-B> <S-LEFT>
 cnoremap <ESC><C-F> <S-RIGHT>
-
-" easy escaping to normal mode
-" imap jj <esc>
 
 " fast save
 nmap <Leader>s :w<CR>
@@ -367,10 +352,6 @@ nmap <Leader>k7 :set foldlevel=6<CR>
 nmap <Leader>k8 :set foldlevel=7<CR>
 nmap <Leader>k9 :set foldlevel=8<CR>
 nmap <Leader>k0 :set foldlevel=100<CR>
-
-" fast asign variable
-" nmap <Leader>v yiw/}<CR>O$this-><ESC>pa = $<ESC>pa;<ESC>?__construct<CR>Oprivate $<ESC>pa;<CR><ESC>/__construct<CR>/<C-R>"<CR>:nohl<CR>
-
 
 " omni complete
 imap <Leader><TAB> <C-X><C-O>
@@ -573,7 +554,7 @@ vnoremap <Leader>c :call CoerceString()<CR>
 " =================
 "  base16 theme
 " =================
-if filereadable(expand("~/.vimrc_background"))
+if filereadable(expand('~/.vimrc_background'))
   let base16colorspace = 256
   let g:airline_theme = 'base16'
 
