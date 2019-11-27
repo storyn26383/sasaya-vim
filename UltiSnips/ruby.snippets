@@ -6,6 +6,10 @@ def get_class_name(filename):
 	return "::".join(map(lambda d: camel_case(d), path.split("/")[2:-1])) + "::" + camel_case(filename.split(".")[0])
 endglobal
 
+snippet ac
+attr_accessor ${0:${VISUAL}}
+endsnippet
+
 snippet business
 class `!p snip.rv = get_class_name(fn)` < Business::Base
 	def run($1)

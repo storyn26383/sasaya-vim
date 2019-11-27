@@ -181,11 +181,11 @@ snippet service
 
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-use App\Modules\Service\Service;
+use App\Services\Service;
 
 class ${2:`!p snip.rv = get_class_name(fn)`} extends Service
 {
-	${3/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:private $$2;\\n    )/g}${3/^[^$]*(\$\w+)?.*$/(?1:\\n    )/}public function handle($3): ${4:void}
+	public function handle($3): ${4:void}
 	{
 		${0:${VISUAL:\/\////}}
 	}
@@ -397,7 +397,7 @@ $this->assertDatabaseHas('${1:users}', [
 endsnippet
 
 snippet asdm
-$this->assertDatabaseHas('${1:users}', [
+$this->assertDatabaseMissing('${1:users}', [
 	${2:'id' => $response->json()['id']},
 ]);
 endsnippet
