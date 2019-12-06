@@ -46,6 +46,7 @@ Plug 'lilydjwg/colorizer'
 Plug 'storyn26383/emmet-vim'
 
 Plug 'storyn26383/vim-vue'
+Plug 'mxw/vim-jsx'
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
@@ -214,7 +215,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 command! -bang -nargs=* Commits call fzf#vim#commits({'options': '--no-reverse'})
 command! -bang -nargs=* BTags call fzf#vim#buffer_tags('', {'options': '--no-reverse'})
 command! -bang -nargs=* BCommits call fzf#vim#buffer_commits({'options': '--no-reverse'})
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '', {'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'})
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore "*.lock"', {'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'})
 let g:fzf_colors={
   \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
