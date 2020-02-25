@@ -335,8 +335,8 @@ snippet unittest
 
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-use Tests\Unit\UnitTest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\Unit\UnitTest;
 
 class ${2:`!p snip.rv = get_class_name(fn)`} extends UnitTest
 {
@@ -351,8 +351,8 @@ snippet featuretest
 
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-use Tests\Unit\FeatureTest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\Feature\FeatureTest;
 
 class ${2:`!p snip.rv = get_class_name(fn)`} extends FeatureTest
 {
