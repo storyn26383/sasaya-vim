@@ -335,10 +335,26 @@ snippet unittest
 
 namespace ${1:`!p snip.rv = get_namespace(path)`};
 
-use Tests\TestCase;
+use Tests\Unit\UnitTest;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ${2:`!p snip.rv = get_class_name(fn)`} extends TestCase
+class ${2:`!p snip.rv = get_class_name(fn)`} extends UnitTest
+{
+	use RefreshDatabase;
+
+	${0:${VISUAL:\/\////}}
+}
+endsnippet
+
+snippet featuretest
+<?php
+
+namespace ${1:`!p snip.rv = get_namespace(path)`};
+
+use Tests\Unit\FeatureTest;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class ${2:`!p snip.rv = get_class_name(fn)`} extends FeatureTest
 {
 	use RefreshDatabase;
 

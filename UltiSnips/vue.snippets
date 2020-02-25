@@ -10,9 +10,10 @@ snippet vue
 	}
 </script>
 
-<style lang="stylus" scoped>
-	.$1
+<style lang="scss" scoped>
+	.$1 {
 		//
+	}
 </style>
 endsnippet
 
@@ -32,17 +33,36 @@ snippet script
 endsnippet
 
 snippet style
-<style lang="stylus" scoped>
-	.${1:component}
+<style lang="scss" scoped>
+	.${1:component} {
 		${0:${VISUAL:\/\////}}
+	}
 </style>
 endsnippet
 
-snippet i18n
-<i18n>
-	zh-TW:
-		${0}
-	zh-HK:
-	en:
-</i18n>
+snippet carousels
+<template lang="pug">
+	section
+		b-carousel
+			b-carousel-item(:key="i", v-for="(carousel, i) in carousels")
+				div(:class="`hero is-medium is-${carousel.color}`")
+					.hero-body.has-text-centered
+						h2.title {{ carousel.text }}
+</template>
+
+<script>
+	export default {
+		data () {
+			return {
+				carousels: [
+					{ text: 'Slide 1', color: 'primary' },
+					{ text: 'Slide 2', color: 'info' },
+					{ text: 'Slide 3', color: 'success' },
+					{ text: 'Slide 4', color: 'warning' },
+					{ text: 'Slide 5', color: 'danger' }
+				]
+			}
+		}
+	}
+</script>
 endsnippet
