@@ -185,7 +185,7 @@ use App\Services\Service;
 
 class ${2:`!p snip.rv = get_class_name(fn)`} extends Service
 {
-	public function handle($3): ${4:void}
+	${3/(,\s*)?(?:\w+)?(?:\s+)?(?:\$(\w+)?)?/(?2:private $$2;\\n    )/g}${3/^[^$]*(\$\w+)?.*$/(?1:\\n    )/}public function handle($3): ${4:void}
 	{
 		${0:${VISUAL:\/\////}}
 	}
