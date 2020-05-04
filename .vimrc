@@ -49,10 +49,10 @@ Plug 'storyn26383/vim-vue'
 Plug 'mxw/vim-jsx'
 
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-rails'
 " Plug 'tpope/vim-bundler'
-Plug 'ecomba/vim-ruby-refactoring'
-Plug 'thoughtbot/vim-rspec'
+" Plug 'ecomba/vim-ruby-refactoring'
+" Plug 'thoughtbot/vim-rspec'
 
 Plug 'chr4/nginx.vim'
 
@@ -403,7 +403,7 @@ imap <C-X><C-J> <Plug>(fzf-complete-file-ag)
 imap <C-X><C-L> <Plug>(fzf-complete-line)
 
 " NERDTree
-nnoremap <silent> <Leader>kb :NERDTreeToggle<CR>
+nnoremap <silent><Leader>kb :NERDTreeToggle<CR>
 
 " commentary
 nmap <Leader>/ gcc
@@ -560,4 +560,7 @@ if filereadable(expand('~/.vimrc_background'))
   let g:airline_theme = 'base16'
 
   source ~/.vimrc_background
+
+  " override cursorline style
+  " hi CursorLineNr term=bold cterm=bold ctermfg=20 ctermbg=18 gui=bold guifg=#b4b7b4 guibg=#282a2e
 endif
