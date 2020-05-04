@@ -306,7 +306,7 @@ let g:phpactorOmniAutoClassImport = v:true
 let g:user_emmet_leader_key = ','
 let g:user_emmet_install_global = 0
 autocmd FileType html,vue EmmetInstall
-autocmd FileType css,scss,stylus EmmetInstall
+autocmd FileType css,sass,scss,stylus EmmetInstall
 
 " commentary
 autocmd FileType php setlocal commentstring=//\ %s
