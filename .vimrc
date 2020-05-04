@@ -54,6 +54,8 @@ Plug 'vim-ruby/vim-ruby'
 " Plug 'ecomba/vim-ruby-refactoring'
 " Plug 'thoughtbot/vim-rspec'
 
+Plug 'storyn26383/dart-vim-plugin'
+
 Plug 'chr4/nginx.vim'
 
 Plug 'vim-syntastic/syntastic'
@@ -309,6 +311,7 @@ autocmd FileType css,scss,stylus EmmetInstall
 " commentary
 autocmd FileType php setlocal commentstring=//\ %s
 autocmd FileType pug setlocal commentstring=//-\ %s
+autocmd FileType dart setlocal commentstring=//\ %s
 
 " repeat
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
@@ -551,6 +554,9 @@ endfunction
 
 nnoremap <Leader>c viw:call CoerceString()<CR>
 vnoremap <Leader>c :call CoerceString()<CR>
+
+" flutter
+autocmd FileType dart nmap <silent><Leader>g :silent !kill -SIGUSR1 `pgrep -f "flutter_tools.snapshot run"`<CR>:redraw!<CR>
 
 " =================
 "  base16 theme
