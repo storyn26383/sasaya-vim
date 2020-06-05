@@ -199,9 +199,8 @@ function! UpdateTags()
   endif
 endfunction
 
-autocmd BufWritePost *.rb call UpdateTags()
 autocmd BufWritePost *.php call UpdateTags()
-command! Ctags call system('ctags --recurse --exclude=vendor --exclude=node_modules --exclude=public --exclude="*.json" --exclude="*.min.*" && ctags --recurse -f tags.vendor vendor node_modules &')
+command! Ctags call system('ctags --recurse --exclude=vendor --exclude=node_modules --exclude=public --exclude="*.json" --exclude="*.min.*" && ctags --recurse --exclude=bin --exclude=node_modules --exclude="*.json" --exclude="*.min.*" -f tags.vendor vendor &')
 
 " filetype
 autocmd FileType php setlocal iskeyword-=$
