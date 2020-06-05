@@ -23,6 +23,8 @@ Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
 
+Plug 'vim-test/vim-test'
+
 Plug 'StanAngeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install' }
@@ -297,6 +299,9 @@ let g:UltiSnipsExpandTrigger = '<TAB>'
 let g:UltiSnipsJumpForwardTrigger = '<C-J>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-K>'
 
+" vim test
+let test#php#phpunit#executable = './vendor/bin/phpunit'
+
 " phpactor
 let g:phpactorBranch = 'develop'
 let g:phpactorOmniError = v:true
@@ -418,6 +423,10 @@ nmap ga <Plug>(EasyAlign)
 
 " php cs fixer
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+" vim test
+nmap <Leader>N :TestNearest<CR>
+nmap <Leader>F :TestFile<CR>
+nmap <Leader>g :TestLast<CR>
 
 function! NPhpactorInsertUse()
   call phpactor#UseAdd()
