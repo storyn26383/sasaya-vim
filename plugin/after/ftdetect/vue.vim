@@ -1,0 +1,1 @@
+autocmd FileType vue EmmetInstall

@@ -1,0 +1,5 @@
+{
+  "suggest.autoTrigger": "none",
+  "suggest.floatEnable": false,
+  "diagnostic.enable": false
+}
