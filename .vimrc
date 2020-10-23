@@ -194,8 +194,8 @@ let mapleader = ','
 let g:mapleader = ','
 
 " command mode
-cmap <C-A> <HOME>
-cmap <C-E> <END>
+cnoremap <C-A> <HOME>
+cnoremap <C-E> <END>
 cnoremap <C-B> <LEFT>
 cnoremap <C-D> <DEL>
 cnoremap <C-F> <RIGHT>
