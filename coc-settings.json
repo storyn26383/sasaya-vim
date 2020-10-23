@@ -1,5 +1,6 @@
 {
   "suggest.autoTrigger": "none",
   "suggest.floatEnable": false,
-  "diagnostic.enable": false
+  "diagnostic.enable": false,
+  "coc.preferences.messageLevel": "error"
 }
