@@ -1,7 +1,8 @@
 snippet vue
-<template lang="pug">
-	.${1:component}
-		${0:${VISUAL:\/\////}}
+<template>
+	<div>
+		${0}
+	</div>
 </template>
 
 <script>
@@ -12,9 +13,10 @@ snippet vue
 endsnippet
 
 snippet template
-<template lang="pug">
-	.${1:component}
-		${0:${VISUAL:\/\////}}
+<template>
+	<div>
+		${0}
+	</div>
 </template>
 endsnippet
 
@@ -28,8 +30,6 @@ endsnippet
 
 snippet style
 <style scoped>
-	.${1:component} {
-		${0:${VISUAL:\/* ... *\////}}
-	}
+	${0:${VISUAL:\/* ... *\////}}
 </style>
 endsnippet
