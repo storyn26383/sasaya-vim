@@ -59,6 +59,8 @@ Plug 'vim-ruby/vim-ruby'
 
 Plug 'storyn26383/dart-vim-plugin'
 
+Plug 'udalov/kotlin-vim'
+
 Plug 'chr4/nginx.vim'
 
 Plug 'vim-syntastic/syntastic'

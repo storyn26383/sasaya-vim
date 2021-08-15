@@ -2,5 +2,11 @@
   "suggest.autoTrigger": "none",
   "suggest.floatEnable": false,
   "diagnostic.enable": false,
-  "coc.preferences.messageLevel": "error"
+  "coc.preferences.messageLevel": "error",
+  "languageserver": {
+    "kotlin": {
+      "command": "~/coding/kotlin/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
+      "filetypes": ["kotlin"]
+    }
+  }
 }
