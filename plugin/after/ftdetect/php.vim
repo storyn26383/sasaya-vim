@@ -43,9 +43,9 @@ autocmd FileType php setlocal sw=4 sts=4 ts=4
 autocmd FileType php command! ClassNew call phpactor#ClassNew()
 autocmd FileType php command! Transform call phpactor#Transform()
 autocmd FileType php command! References call phpactor#FindReferences()
-" autocmd FileType php imap <buffer><Leader><TAB> <C-X><C-O>
-" autocmd FileType php nmap <buffer><silent><C-]> :call PhpactorGotoDefinition()<CR>
-" autocmd FileType php nmap <buffer><silent><C-T> :call PhpactorTraceBack()<CR>
+autocmd FileType php imap <buffer><Leader><TAB> <C-X><C-O>
+autocmd FileType php nmap <buffer><silent><C-]> :call PhpactorGotoDefinition()<CR>
+autocmd FileType php nmap <buffer><silent><C-T> :call PhpactorTraceBack()<CR>
 autocmd FileType php nmap <buffer><Leader>l :call phpactor#ClassNew()<CR>
 autocmd FileType php nmap <buffer><Leader>m :call phpactor#ContextMenu()<CR>
 autocmd FileType php nmap <buffer><Leader>a :call phpactor#Navigate()<CR>
