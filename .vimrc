@@ -63,6 +63,7 @@ Plug 'udalov/kotlin-vim'
 
 Plug 'chr4/nginx.vim'
 
+Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-syntastic/syntastic'
 " Plug 'stephpy/vim-php-cs-fixer'
 Plug 'tpope/vim-fugitive'
