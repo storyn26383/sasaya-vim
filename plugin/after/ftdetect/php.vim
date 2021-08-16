@@ -46,15 +46,15 @@ autocmd FileType php command! References call phpactor#FindReferences()
 autocmd FileType php imap <buffer><Leader><TAB> <C-X><C-O>
 autocmd FileType php nmap <buffer><silent><C-]> :call PhpactorGotoDefinition()<CR>
 autocmd FileType php nmap <buffer><silent><C-T> :call PhpactorTraceBack()<CR>
-autocmd FileType php nmap <buffer><Leader>l :call phpactor#ClassNew()<CR>
 autocmd FileType php nmap <buffer><Leader>m :call phpactor#ContextMenu()<CR>
-autocmd FileType php nmap <buffer><Leader>a :call phpactor#Navigate()<CR>
-autocmd FileType php nmap <buffer><Leader>f :call NPhpactorInsertUse()<CR>
-autocmd FileType php imap <buffer><Leader>f <ESC>:call IPhpactorInsertUse()<CR>
-autocmd FileType php nmap <buffer><Leader>e :call NPhpactorExpandClass()<CR>
-autocmd FileType php imap <buffer><Leader>e <ESC>:call IPhpactorExpandClass()<CR>
-autocmd FileType php nmap <buffer><silent><Leader>x :call phpactor#ExtractExpression(v:false)<CR>
-autocmd FileType php vmap <buffer><silent><Leader>x :<C-U>call phpactor#ExtractExpression(v:true)<CR>
-autocmd FileType php vmap <buffer><silent><Leader>m :<C-U>call phpactor#ExtractMethod()<CR>
+autocmd FileType php nmap <buffer><Leader>al :call phpactor#ClassNew()<CR>
+autocmd FileType php nmap <buffer><Leader>ai :call NPhpactorInsertUse()<CR>
+autocmd FileType php imap <buffer><Leader>ai <ESC>:call IPhpactorInsertUse()<CR>
+autocmd FileType php nmap <buffer><Leader>ae :call NPhpactorExpandClass()<CR>
+autocmd FileType php imap <buffer><Leader>ae <ESC>:call IPhpactorExpandClass()<CR>
+autocmd FileType php nmap <buffer><silent><Leader>ax :call phpactor#ExtractExpression(v:false)<CR>
+autocmd FileType php vmap <buffer><silent><Leader>ax :<C-U>call phpactor#ExtractExpression(v:true)<CR>
+autocmd FileType php vmap <buffer><silent><Leader>am :<C-U>call phpactor#ExtractMethod()<CR>
+autocmd FileType php nmap <Leader>f :!vendor/bin/php-cs-fixer fix %<CR>
 
 autocmd BufWritePost *.php call UpdateTags()
