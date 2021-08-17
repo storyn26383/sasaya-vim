@@ -4,7 +4,7 @@
 
 call plug#begin('~/.vim/plugged')
 
-" Plgins
+" Plugins
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
