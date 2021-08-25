@@ -22,12 +22,12 @@ imap <silent><expr><Leader><TAB> coc#refresh()
 nmap <silent><C-]> :call CocGotoDefinition()<CR>
 nmap <silent><C-T> :call CocTraceBack()<CR>
 nmap <silent><Leader>v :call CocActionAsync('doHover')<CR>
-nmap <silent><Leader>ar :call CocActionAsync('rename')<CR>
-nmap <silent><Leader>af :call CocActionAsync('format')<CR>
-vmap <silent><Leader>af :call CocActionAsync('formatSelected', visualmode())<CR>
-nmap <silent><Leader>au :call CocActionAsync('jumpUsed')<CR>
-nmap <silent><Leader>ai :call CocActionAsync('runCommand', 'editor.action.organizeImport')<CR>
-nmap <silent><Leader>m :CocAction<CR>
-vmap <silent><Leader>m :CocAction<CR>
+nmap <silent><Leader>mr :call CocActionAsync('rename')<CR>
+nmap <silent><Leader>mf :call CocActionAsync('jumpUsed')<CR>
+nmap <silent><Leader>m= :call CocActionAsync('format')<CR>
+vmap <silent><Leader>m= :call CocActionAsync('formatSelected', visualmode())<CR>
+nmap <silent><Leader>mo :call CocActionAsync('runCommand', 'editor.action.organizeImport')<CR>
+nmap <silent><Leader>a :CocAction<CR>
+vmap <silent><Leader>a :CocAction<CR>
 nmap <silent><Leader>x :CocCommand<CR>
 vmap <silent><Leader>x :CocCommand<CR>
