@@ -44,6 +44,15 @@ function! PhpactorGenerateMethod()
   \ })
 endfunction
 
+function! PhpactorRenamveVariable()
+  call phpactor#rpc("rename_variable", {
+    \ "offset": phpactor#_offset(),
+    \ "source": phpactor#_source(),
+    \ "path": expand('%:p'),
+    \ "name_suggestion": expand("<cword>"),
+  \ })
+endfunction
+
 autocmd FileType php setlocal omnifunc=phpactor#Complete
 autocmd FileType php setlocal commentstring=//\ %s
 autocmd FileType php setlocal iskeyword-=$
@@ -61,6 +70,7 @@ autocmd FileType php nmap <buffer><Leader>mo :call phpactor#ImportMissingClasses
 autocmd FileType php nmap <buffer><Leader>me :call NPhpactorExpandClass()<CR>
 autocmd FileType php imap <buffer><Leader>me <ESC>:call IPhpactorExpandClass()<CR>
 autocmd FileType php nmap <buffer><Leader>mm :call PhpactorGenerateMethod()<CR>
+autocmd FileType php nmap <buffer><Leader>mr :call PhpactorRenamveVariable()<CR>
 autocmd FileType php nmap <buffer><silent><Leader>mx :call phpactor#ExtractExpression(v:false)<CR>
 autocmd FileType php vmap <buffer><silent><Leader>mx :<C-U>call phpactor#ExtractExpression(v:true)<CR>
 autocmd FileType php vmap <buffer><silent><Leader>mm :<C-U>call phpactor#ExtractMethod()<CR>
