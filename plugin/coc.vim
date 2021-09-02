@@ -21,6 +21,8 @@ endfunction
 imap <silent><expr><Leader><TAB> coc#refresh()
 nmap <silent><C-]> :call CocGotoDefinition()<CR>
 nmap <silent><C-T> :call CocTraceBack()<CR>
+nmap <silent><Leader>r :<C-u>CocList outline<CR>
+nmap <silent><Leader>t :<C-u>CocList -I symbols<CR>
 nmap <silent><Leader>v :call CocActionAsync('doHover')<CR>
 nmap <silent><Leader>mr :call CocActionAsync('rename')<CR>
 nmap <silent><Leader>mf :call CocActionAsync('jumpUsed')<CR>

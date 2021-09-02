@@ -4,8 +4,6 @@ command! -bang -nargs=* BCommits call fzf#vim#buffer_commits({'options': '--no-r
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore "*.lock"', {'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'})
 
 nmap <C-P> :Files<CR>
-nmap <Leader>t :Tags<CR>
-nmap <Leader>r :BTags<CR>
 nmap <Leader>b :Buffers<CR>
 imap <C-X><C-K> <Plug>(fzf-complete-word)
 imap <C-X><C-F> <Plug>(fzf-complete-path)
