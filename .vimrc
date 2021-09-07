@@ -25,20 +25,25 @@ Plug 'junegunn/vim-easy-align'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'vim-test/vim-test'
 
 Plug 'StanAngeloff/php.vim'
 Plug 'arnaud-lb/vim-php-namespace'
+" Plug 'stephpy/vim-php-cs-fixer'
 Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer install' }
 
-Plug 'digitaltoad/vim-pug'
+" Plug 'digitaltoad/vim-pug'
 Plug 'jwalton512/vim-blade'
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 " Plug 'kchmck/vim-coffee-script'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'hail2u/vim-css3-syntax'
 Plug 'cakebaker/scss-syntax.vim'
@@ -52,7 +57,6 @@ Plug 'lilydjwg/colorizer'
 Plug 'storyn26383/emmet-vim'
 
 Plug 'storyn26383/vim-vue'
-Plug 'mxw/vim-jsx'
 
 Plug 'vim-ruby/vim-ruby'
 " Plug 'tpope/vim-rails'
@@ -65,11 +69,6 @@ Plug 'storyn26383/dart-vim-plugin'
 Plug 'udalov/kotlin-vim'
 
 Plug 'chr4/nginx.vim'
-
-Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-syntastic/syntastic'
-" Plug 'stephpy/vim-php-cs-fixer'
-Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
