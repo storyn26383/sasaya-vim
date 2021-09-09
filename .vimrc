@@ -188,7 +188,10 @@ colorscheme tomorrow-night
 " autocmd WinLeave * setlocal nocursorline
 
 " remove tailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
+augroup vimrc
+  autocmd!
+  autocmd BufWritePre * :%s/\s\+$//e
+augroup END
 
 " =================
 "  key remap
