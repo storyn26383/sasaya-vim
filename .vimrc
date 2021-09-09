@@ -42,7 +42,7 @@ Plug 'phpactor/phpactor', { 'for': 'php', 'branch': 'develop', 'do': 'composer i
 Plug 'jwalton512/vim-blade'
 
 Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
+" Plug 'leafgarland/typescript-vim'
 " Plug 'kchmck/vim-coffee-script'
 
 Plug 'hail2u/vim-css3-syntax'
