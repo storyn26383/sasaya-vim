@@ -1,4 +1,4 @@
 augroup javascript
   autocmd!
-  autocmd FileType javascript nmap <Leader>f :!yarn eslint --fix %<CR>
+  autocmd FileType javascript nmap <buffer><Leader>f :!yarn eslint --fix %<CR>
 augroup END

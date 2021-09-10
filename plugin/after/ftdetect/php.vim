@@ -77,7 +77,7 @@ augroup php
   autocmd FileType php nmap <buffer><silent><Leader>mx :call phpactor#ExtractExpression(v:false)<CR>
   autocmd FileType php vmap <buffer><silent><Leader>mx :<C-U>call phpactor#ExtractExpression(v:true)<CR>
   autocmd FileType php vmap <buffer><silent><Leader>mm :<C-U>call phpactor#ExtractMethod()<CR>
-  autocmd FileType php nmap <Leader>f :!vendor/bin/php-cs-fixer fix %<CR>
+  autocmd FileType php nmap <buffer><Leader>f :!vendor/bin/php-cs-fixer fix %<CR>
 
   autocmd BufWritePost *.php call UpdateTags()
 augroup END
