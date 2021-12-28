@@ -9,3 +9,4 @@ let g:syntastic_aggregate_errors = 1
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = '--standard=psr2'
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_java_checkers = []
