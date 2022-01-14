@@ -33,9 +33,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'vim-test/vim-test'
 
-Plug 'StanAngeloff/php.vim'
-Plug 'arnaud-lb/vim-php-namespace'
-" Plug 'stephpy/vim-php-cs-fixer'
 Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 
 " Plug 'digitaltoad/vim-pug'
