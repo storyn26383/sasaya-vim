@@ -16,8 +16,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'storyn26383/vim-autoclose'
-" Plug 'jiangmiao/auto-pairs'
-" Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
@@ -28,43 +26,14 @@ Plug 'SirVer/ultisnips'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'lilydjwg/colorizer'
+Plug 'vim-test/vim-test'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
-Plug 'vim-test/vim-test'
-
 Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 
-" Plug 'digitaltoad/vim-pug'
-Plug 'jwalton512/vim-blade'
-
-Plug 'pangloss/vim-javascript'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'kchmck/vim-coffee-script'
-
-Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'iloginow/vim-stylus'
-
-Plug 'dearrrfish/vim-applescript'
-
 Plug 'jparise/vim-graphql'
-
-Plug 'lilydjwg/colorizer'
-
-Plug 'storyn26383/vim-vue'
-
-Plug 'vim-ruby/vim-ruby'
-" Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-bundler'
-" Plug 'ecomba/vim-ruby-refactoring'
-" Plug 'thoughtbot/vim-rspec'
-
-Plug 'storyn26383/dart-vim-plugin'
-
-Plug 'udalov/kotlin-vim'
-
-Plug 'chr4/nginx.vim'
 
 call plug#end()
 
@@ -236,7 +205,7 @@ nmap <Leader>k0 :set foldlevel=100<CR>
 " go to definition
 " nmap g] g<C-]>
 nmap g] <C-]>
-nmap g[ <C-T>
+nmap g[ <C-O>
 
 " identation
 nmap g. v>
