@@ -55,7 +55,6 @@ Plug 'dearrrfish/vim-applescript'
 Plug 'jparise/vim-graphql'
 
 Plug 'lilydjwg/colorizer'
-Plug 'storyn26383/emmet-vim'
 
 Plug 'storyn26383/vim-vue'
 
