@@ -1,5 +1,3 @@
-let g:coc_default_semantic_highlight_groups = 1
-
 imap <silent><expr><Leader><TAB> coc#refresh()
 nmap <silent><C-]> <Plug>(coc-definition)
 nmap <silent><Leader>r :<C-u>CocList outline<CR>

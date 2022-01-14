@@ -32,8 +32,8 @@ Plug 'vim-test/vim-test'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
-
 Plug 'chr4/nginx.vim'
+Plug 'storyn26383/vim-vue'
 Plug 'jparise/vim-graphql'
 
 call plug#end()
