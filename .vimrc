@@ -26,7 +26,6 @@ Plug 'ervandew/supertab'
 Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 

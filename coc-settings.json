@@ -1,7 +1,7 @@
 {
   "suggest.autoTrigger": "none",
   "suggest.floatEnable": true,
-  "diagnostic.enable": false,
+  "diagnostic.enable": true,
   "coc.preferences.messageLevel": "error",
   "languageserver": {
     "kotlin": {
