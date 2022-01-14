@@ -37,7 +37,6 @@ augroup php
   autocmd!
 
   autocmd FileType php setlocal commentstring=//\ %s
-  autocmd FileType php setlocal iskeyword-=$
   autocmd FileType php setlocal sw=4 sts=4 ts=4
 
   autocmd FileType php nmap <buffer><Leader>x :call phpactor#ContextMenu()<CR>
