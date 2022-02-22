@@ -1,4 +1,5 @@
 {
+  "css.validate": false,
   "suggest.autoTrigger": "none",
   "suggest.floatEnable": true,
   "diagnostic.enable": true,
