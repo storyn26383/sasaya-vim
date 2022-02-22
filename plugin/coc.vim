@@ -1,3 +1,13 @@
+let g:coc_global_extensions = [
+\   '@yaegassy/coc-volar',
+\   'coc-css',
+\   'coc-emmet',
+\   'coc-json',
+\   'coc-phpls',
+\   'coc-tsserver',
+\   'coc-xml',
+\ ]
+
 imap <silent><expr><Leader><TAB> coc#refresh()
 nmap <silent><C-]> <Plug>(coc-definition)
 nmap <silent><Leader>r :<C-u>CocList outline<CR>
