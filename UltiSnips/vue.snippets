@@ -1,22 +1,16 @@
 snippet vue
 <template>
-	<div>
-		${0}
-	</div>
+	${0}
 </template>
 
-<script>
-	export default {
-		//
-	}
+<script lang="ts" setup>
+	//
 </script>
 endsnippet
 
 snippet template
 <template>
-	<div>
-		${0}
-	</div>
+	${0}
 </template>
 endsnippet
 
@@ -25,6 +19,12 @@ snippet script
 	export default {
 		${0:${VISUAL:\/\////}}
 	}
+</script>
+endsnippet
+
+snippet setup
+<script lang="ts" setup>
+	${0:${VISUAL:\/* ... *\////}}
 </script>
 endsnippet
 
