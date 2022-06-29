@@ -26,14 +26,14 @@ Plug 'SirVer/ultisnips'
 Plug 'mattn/emmet-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 Plug 'lilydjwg/colorizer'
 Plug 'vim-test/vim-test'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
-Plug 'StanAngeloff/php.vim'
+Plug 'storyn26383/php.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'chr4/nginx.vim'
