@@ -1,11 +1,13 @@
 let g:coc_global_extensions = [
 \   '@yaegassy/coc-volar',
+\   '@yaegassy/coc-volar-tools',
 \   'coc-css',
 \   'coc-emmet',
 \   'coc-json',
 \   'coc-phpls',
 \   'coc-tsserver',
 \   'coc-xml',
+\   'coc-graphql',
 \ ]
 
 imap <silent><expr><Leader><TAB> coc#refresh()
