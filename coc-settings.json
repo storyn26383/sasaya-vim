@@ -2,7 +2,6 @@
   "intelephense.environment.phpVersion": "8.1.0",
   "css.validate": false,
   "suggest.autoTrigger": "none",
-  "suggest.floatEnable": true,
   "diagnostic.enable": true,
   "coc.preferences.messageLevel": "error"
 }
