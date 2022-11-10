@@ -65,6 +65,7 @@ set ttyfast                           " send more chars while redrawing
 set lazyredraw                        " speedup vim
 set timeoutlen=1000
 set ttimeoutlen=0
+set updatetime=300
 
 set nobomb                            " no BOM (Byte Order Mark)
 set viminfo=                          " disable .viminfo file
@@ -84,6 +85,7 @@ set showmatch
 set number
 set numberwidth=4
 " set relativenumber
+set signcolumn=yes
 set title
 set showcmd
 set noshowmode
