@@ -188,7 +188,7 @@ cnoremap <ESC><C-F> <S-RIGHT>
 nmap <Leader>s :w<CR>
 
 " tig
-nmap <Leader>B :exec '!tig blame % +'.line('.')<CR>
+nmap <Leader>B :exec "!tig blame '%' +".line('.')<CR>
 
 " close buffer
 nmap <Leader>w :bd<CR>
