@@ -39,6 +39,8 @@ Plug 'chr4/nginx.vim'
 Plug 'storyn26383/vim-vue'
 Plug 'jparise/vim-graphql'
 
+Plug 'github/copilot.vim', { 'branch': 'release' }
+
 call plug#end()
 
 " =================
