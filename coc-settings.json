@@ -1,5 +1,5 @@
 {
-  "intelephense.environment.phpVersion": "8.1.0",
+  "intelephense.client.disableAddIskeyword": true,
   "css.validate": false,
   "suggest.autoTrigger": "none",
   "diagnostic.enable": true,

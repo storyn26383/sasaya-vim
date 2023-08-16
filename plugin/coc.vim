@@ -1,6 +1,7 @@
 let g:coc_global_extensions = [
 \   '@yaegassy/coc-volar',
 \   '@yaegassy/coc-volar-tools',
+\   '@yaegassy/coc-intelephense',
 \   'coc-css',
 \   'coc-emmet',
 \   'coc-json',
