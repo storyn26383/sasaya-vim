@@ -7,8 +7,8 @@ let g:coc_global_extensions = [
 \   'coc-json',
 \   'coc-phpls',
 \   'coc-tsserver',
-\   'coc-xml',
 \   'coc-graphql',
+\   'coc-html',
 \ ]
 
 function! CocCheckBackspace() abort
