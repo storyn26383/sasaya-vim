@@ -45,6 +45,8 @@ nnoremap <silent> <Leader>a <Plug>(coc-codeaction-cursor)
 xnoremap <silent> <Leader>a <Plug>(coc-codeaction-selected)
 nnoremap <silent> <Leader>x :<C-u>CocList commands<CR>
 xnoremap <silent> <Leader>x :<C-u>CocList commands<CR>
+nnoremap <silent> [d <Plug>(coc-diagnostic-prev-error)
+nnoremap <silent> ]d <Plug>(coc-diagnostic-next-error)
 
 if has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
