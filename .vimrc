@@ -191,7 +191,11 @@ cnoremap <ESC><C-F> <S-RIGHT>
 nmap <Leader>s :w<CR>
 
 " tig
-nmap <Leader>B :exec "!tig blame '%' +".line('.')<CR>
+if has('nvim')
+  nmap <Leader>B :Git blame<CR>
+else
+  nmap <Leader>B :exec "!tig blame '%' +".line('.')<CR>
+endif
 
 " close buffer
 nmap <Leader>w :bd<CR>
@@ -245,3 +249,8 @@ nmap <Leader><Space> :nohlsearch<CR>
 nmap <C-Y> "zY
 vmap <C-Y> "zy
 vmap <C-P> "zp
+
+" same behavior between vim & neovim
+if has('nvim')
+  nmap Y yy
+endif
