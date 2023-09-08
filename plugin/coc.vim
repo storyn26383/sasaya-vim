@@ -13,7 +13,7 @@ let g:coc_global_extensions = [
 
 function! CocCheckBackspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+  return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
 inoremap <silent><expr> <TAB>
