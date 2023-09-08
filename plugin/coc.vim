@@ -11,6 +11,8 @@ let g:coc_global_extensions = [
 \   'coc-html',
 \ ]
 
+let g:coc_config_home = '~/.vim'
+
 function! CocCheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1] =~# '\s'
