@@ -60,6 +60,7 @@ set switchbuf=useopen
 set scrolloff=4                       " start scrolling when n lines away from margins
 set tags=tags,tags.vendor
 set exrc                              " allows for per-project configuration files
+set mouse=                            " disable mouse actions
 " set clipboard+=unnamed
 
 set ttyfast                           " send more chars while redrawing
