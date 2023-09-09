@@ -81,7 +81,7 @@ set ruler                             " show the cursor position all the time
 set wrap
 set linebreak
 set nolist
-set nocursorline
+set cursorline
 set nocursorcolumn
 set showmatch
 set number

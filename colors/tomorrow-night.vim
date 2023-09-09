@@ -269,6 +269,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	if version >= 703
 		call <SID>X("ColorColumn", "", s:line, "none")
 	end
+	if version >= 801
+		call <SID>X("CursorLineNr", s:foreground, s:line, "bold")
+ 	end
 
 	" Standard Highlighting
 	call <SID>X("Comment", s:comment, "", "")
