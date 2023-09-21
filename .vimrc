@@ -41,6 +41,11 @@ Plug 'jparise/vim-graphql'
 
 Plug 'github/copilot.vim', { 'branch': 'release' }
 
+if has('nvim')
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'folke/todo-comments.nvim'
+endif
+
 call plug#end()
 
 " =================
