@@ -1,10 +1,9 @@
 let g:fzf_layout = { 'down': '30%' }
-let g:fzf_preview_window = ['hidden,right,50%,<70(hidden,up,50%)', 'ctrl-/']
 
 command! -bang -nargs=* Commits call fzf#vim#commits({'options': '--no-reverse'})
 command! -bang -nargs=* BTags call fzf#vim#buffer_tags('', {'options': '--no-reverse'})
 command! -bang -nargs=* BCommits call fzf#vim#buffer_commits({'options': '--no-reverse'})
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore "*.lock"', {'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'})
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore "*.lock"', fzf#vim#with_preview({'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'}))
 
 nmap <silent> <C-P> :Files<CR>
 nmap <silent> <Leader>b :Buffers<CR>
