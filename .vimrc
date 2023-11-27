@@ -30,6 +30,7 @@ Plug 'lilydjwg/colorizer'
 Plug 'vim-test/vim-test'
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'antoinemadec/coc-fzf', { 'branch': 'release' }
 
 Plug 'phpactor/phpactor', { 'for': 'php', 'do': 'composer install' }
 Plug 'storyn26383/php.vim'
