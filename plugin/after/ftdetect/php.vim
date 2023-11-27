@@ -49,10 +49,12 @@ augroup php
   autocmd FileType php nmap <buffer><Leader>me :call NPhpactorExpandClass()<CR>
   autocmd FileType php imap <buffer><Leader>me <ESC>:call IPhpactorExpandClass()<CR>
   autocmd FileType php nmap <buffer><Leader>mm :call PhpactorGenerateMethod()<CR>
-  autocmd FileType php nmap <buffer><Leader>mr :call PhpactorRenamveVariable()<CR>
   autocmd FileType php nmap <buffer><silent><Leader>mx :call phpactor#ExtractExpression(v:false)<CR>
   autocmd FileType php vmap <buffer><silent><Leader>mx :<C-U>call phpactor#ExtractExpression(v:true)<CR>
   autocmd FileType php vmap <buffer><silent><Leader>mm :<C-U>call phpactor#ExtractMethod()<CR>
 
   autocmd FileType php nmap <buffer><Leader>f :!vendor/bin/pint % \|\| vendor/bin/php-cs-fixer fix %<CR>
+
+  " duplicate previous method
+  autocmd FileType php nmap <buffer><Leader>mc [[V]]ky]]]]Pwwciw
 augroup END
