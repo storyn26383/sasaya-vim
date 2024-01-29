@@ -33,6 +33,7 @@ inoremap <silent><expr> <CR>
 nnoremap <silent> <C-]> <Plug>(coc-definition)
 nnoremap <silent> <Leader>r :<C-u>CocList outline<CR>
 nnoremap <silent> <Leader>t :<C-u>CocList -I symbols<CR>
+vnoremap <silent> <Leader>t "zy:<C-u>CocList -I --input=<C-R>z symbols<CR>
 nnoremap <silent> <Leader>v :<C-u>call CocActionAsync('doHover')<CR>
 nnoremap <silent> <Leader>mr <Plug>(coc-rename)
 nnoremap <silent> <Leader>mf <Plug>(coc-references-used)
