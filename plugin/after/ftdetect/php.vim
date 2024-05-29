@@ -1,3 +1,7 @@
+if !exists('g:php_cs_fixer_command')
+  let g:php_cs_fixer_command = 'vendor/bin/pint % || vendor/bin/php-cs-fixer fix'
+endif
+
 function! NPhpactorImportClass()
   call phpactor#ImportClass()
 endfunction
@@ -53,7 +57,7 @@ augroup php
   autocmd FileType php vmap <buffer><silent><Leader>mx :<C-U>call phpactor#ExtractExpression(v:true)<CR>
   autocmd FileType php vmap <buffer><silent><Leader>mm :<C-U>call phpactor#ExtractMethod()<CR>
 
-  autocmd FileType php nmap <buffer><Leader>f :!vendor/bin/pint % \|\| vendor/bin/php-cs-fixer fix %<CR>
+  autocmd FileType php nmap <buffer><Leader>f :exec '!' . g:php_cs_fixer_command . ' ' . expand('%')<CR>
 
   " duplicate previous method
   autocmd FileType php nmap <buffer><Leader>mc [[V]]ky]]]]Pwwciw
