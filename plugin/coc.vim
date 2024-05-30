@@ -48,7 +48,7 @@ xnoremap <silent> <Leader>x :<C-u>CocList commands<CR>
 nnoremap <silent> [d <Plug>(coc-diagnostic-prev-error)
 nnoremap <silent> ]d <Plug>(coc-diagnostic-next-error)
 
-if has('patch-8.2.0750')
+if has('patch-8.2.0750') || has('nvim')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(1)\<CR>" : "\<Right>"
