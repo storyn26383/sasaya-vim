@@ -1,4 +1,5 @@
 if has_key(g:plugs, 'base16-vim')
+  set termguicolors
   let base16colorspace = 256
   let g:airline_theme = 'base16'
 
