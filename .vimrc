@@ -164,11 +164,14 @@ syntax on
 colorscheme tomorrow-night
 
 " cursorline switched while focus is switched to another split window
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+augroup vimrc-cursorline
+  autocmd!
+  autocmd WinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
 
 " remove tailing whitespace
-augroup vimrc
+augroup vimrc-whitespace
   autocmd!
   autocmd BufWritePre * :%s/\s\+$//e
 augroup END
