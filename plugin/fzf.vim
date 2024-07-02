@@ -4,6 +4,7 @@ command! -bang -nargs=* Commits call fzf#vim#commits({'options': '--no-reverse'}
 command! -bang -nargs=* BTags call fzf#vim#buffer_tags('', {'options': '--no-reverse'})
 command! -bang -nargs=* BCommits call fzf#vim#buffer_commits({'options': '--no-reverse'})
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--ignore "*.lock"', fzf#vim#with_preview({'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'}))
+command! -bang -nargs=* Rg call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case --ignore-file "*.lock" -- '.fzf#shellescape(<q-args>), fzf#vim#with_preview({'options': '--bind ctrl-a:select-all,ctrl-d:deselect-all'}))
 
 nmap <silent> <C-P> :Files<CR>
 nmap <silent> <Leader>b :Buffers<CR>
@@ -11,3 +12,4 @@ imap <silent> <C-X><C-K> <Plug>(fzf-complete-word)
 imap <silent> <C-X><C-F> <Plug>(fzf-complete-path)
 imap <silent> <C-X><C-J> <Plug>(fzf-complete-file-ag)
 imap <silent> <C-X><C-L> <Plug>(fzf-complete-line)
+vmap <silent> <Leader>g "zy:<C-u>Rg <C-R>z<CR>
