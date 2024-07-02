@@ -37,6 +37,10 @@ function! PhpactorRenamveVariable()
   \ })
 endfunction
 
+function! PhpCsFix()
+  execute '! ' . g:php_cs_fixer_command . ' ' . expand('%')
+endfunction
+
 augroup php
   autocmd!
 
@@ -57,7 +61,7 @@ augroup php
   autocmd FileType php vmap <buffer><silent><Leader>mx :<C-U>call phpactor#ExtractExpression(v:true)<CR>
   autocmd FileType php vmap <buffer><silent><Leader>mm :<C-U>call phpactor#ExtractMethod()<CR>
 
-  autocmd FileType php nmap <buffer><Leader>f :exec '!' . g:php_cs_fixer_command . ' ' . expand('%')<CR>
+  autocmd FileType php nmap <buffer><Leader>f :call PhpCsFix()<CR>
 
   " duplicate previous method
   autocmd FileType php nmap <buffer><Leader>mc [[V]]ky]]]]Pwwciw
